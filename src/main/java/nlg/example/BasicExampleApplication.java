@@ -13,8 +13,8 @@ public class BasicExampleApplication {
 
         AuthcontrollerApi apiInstance = new AuthcontrollerApi();
         AuthModel model = new AuthModel(); // AuthModel | model
-        model.setUsername("admin");
-        model.setPassword("admin");
+        model.setUsername("test");
+        model.setPassword("test");
 
         String token = null;
         String refreshToken = null;
