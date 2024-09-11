@@ -58,6 +58,7 @@ public class BasicExampleApplication {
         conversionExample.getConversionReachExperiment(token);
 
         ExperimentExample experimentExample = new ExperimentExample();
+        experimentExample.createExperiment(token);
         experimentExample.getExperiment(token);
         experimentExample.getExperimentNextMessage(token);
         experimentExample.getExperimentsByStatus(token);

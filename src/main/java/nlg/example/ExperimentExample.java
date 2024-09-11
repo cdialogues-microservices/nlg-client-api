@@ -9,6 +9,24 @@ import io.swagger.client.model.Experiment;
 import java.util.List;
 
 public class ExperimentExample {
+    public void createExperiment(String token) {
+        ExperimentclientcontrollerApi apiInstance = new ExperimentclientcontrollerApi();
+
+        ApiClient apiClient = apiInstance.getApiClient();
+
+        apiClient.setAccessToken(token);
+        try {
+            Experiment experiment = new Experiment();
+            experiment.setExperimentName("Test Experiment");
+
+            experiment = apiInstance.createExperimentUsingPOST(experiment);
+            System.out.println("Result getExperiment: " + experiment);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExperimentclientcontrollerApi#createExperimentUsingPOST");
+            System.err.println("Error: " + e.getResponseBody());
+        }
+    }
+
     public void getExperiment(String token) {
         ExperimentclientcontrollerApi apiInstance = new ExperimentclientcontrollerApi();
 
