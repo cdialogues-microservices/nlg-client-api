@@ -99,8 +99,6 @@ public class ExperimentExample {
         }
     }
 
-
-
     private List<ExperimentMessage> buildExperimentMessages() {
         List<ExperimentMessage> messages = new ArrayList<>();
         for (Message message : MessagesExample.lastMessagesAlternatives) {
