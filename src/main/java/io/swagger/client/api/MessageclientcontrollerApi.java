@@ -56,6 +56,225 @@ public class MessageclientcontrollerApi {
         this.apiClient = apiClient;
     }
 
+    /* Build call for createMessageRichUsingPOST */
+    private com.squareup.okhttp.Call createMessageRichUsingPOSTCall(Message message, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = message;
+        
+        // verify the required parameter 'message' is set
+        if (message == null) {
+            throw new ApiException("Missing the required parameter 'message' when calling createMessageRichUsingPOST(Async)");
+        }
+        
+
+        // create path and map variables
+        String localVarPath = "/api/v1.0/messages/rich".replaceAll("\\{format\\}","json");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "*/*"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {"BearerTokenAuthentication"};
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * createMessageRich
+     * 
+     * @param message message (required)
+     * @return Message
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Message createMessageRichUsingPOST(Message message) throws ApiException {
+        ApiResponse<Message> resp = createMessageRichUsingPOSTWithHttpInfo(message);
+        return resp.getData();
+    }
+
+    /**
+     * createMessageRich
+     * 
+     * @param message message (required)
+     * @return ApiResponse&lt;Message&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Message> createMessageRichUsingPOSTWithHttpInfo(Message message) throws ApiException {
+        com.squareup.okhttp.Call call = createMessageRichUsingPOSTCall(message, null, null);
+        Type localVarReturnType = new TypeToken<Message>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * createMessageRich (asynchronously)
+     * 
+     * @param message message (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createMessageRichUsingPOSTAsync(Message message, final ApiCallback<Message> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createMessageRichUsingPOSTCall(message, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Message>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for createRichContentAlternativeMessagesUsingPOST */
+    private com.squareup.okhttp.Call createRichContentAlternativeMessagesUsingPOSTCall(List<Long> messageIds, Boolean saveToDb, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // verify the required parameter 'messageIds' is set
+        if (messageIds == null) {
+            throw new ApiException("Missing the required parameter 'messageIds' when calling createRichContentAlternativeMessagesUsingPOST(Async)");
+        }
+        
+
+        // create path and map variables
+        String localVarPath = "/api/v1.0/messages/rich/variations".replaceAll("\\{format\\}","json");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (messageIds != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "messageIds", messageIds));
+        if (saveToDb != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "saveToDb", saveToDb));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "*/*"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {"BearerTokenAuthentication"};
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * createRichContentAlternativeMessages
+     * 
+     * @param messageIds messageIds (required)
+     * @param saveToDb saveToDb (optional, default to false)
+     * @return List&lt;Message&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<Message> createRichContentAlternativeMessagesUsingPOST(List<Long> messageIds, Boolean saveToDb) throws ApiException {
+        ApiResponse<List<Message>> resp = createRichContentAlternativeMessagesUsingPOSTWithHttpInfo(messageIds, saveToDb);
+        return resp.getData();
+    }
+
+    /**
+     * createRichContentAlternativeMessages
+     * 
+     * @param messageIds messageIds (required)
+     * @param saveToDb saveToDb (optional, default to false)
+     * @return ApiResponse&lt;List&lt;Message&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<Message>> createRichContentAlternativeMessagesUsingPOSTWithHttpInfo(List<Long> messageIds, Boolean saveToDb) throws ApiException {
+        com.squareup.okhttp.Call call = createRichContentAlternativeMessagesUsingPOSTCall(messageIds, saveToDb, null, null);
+        Type localVarReturnType = new TypeToken<List<Message>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * createRichContentAlternativeMessages (asynchronously)
+     * 
+     * @param messageIds messageIds (required)
+     * @param saveToDb saveToDb (optional, default to false)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createRichContentAlternativeMessagesUsingPOSTAsync(List<Long> messageIds, Boolean saveToDb, final ApiCallback<List<Message>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createRichContentAlternativeMessagesUsingPOSTCall(messageIds, saveToDb, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<Message>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /* Build call for getMessagesUsingGET */
     private com.squareup.okhttp.Call getMessagesUsingGETCall(List<Long> id, List<String> status, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;

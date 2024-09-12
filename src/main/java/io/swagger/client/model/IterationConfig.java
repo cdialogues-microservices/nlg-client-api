@@ -32,29 +32,50 @@ import java.util.Objects;
 
 
 /**
- * RefreshTokenModel
+ * IterationConfig
  */
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-09-13T01:53:44.846+06:00")
-public class RefreshTokenModel   {
-  @SerializedName("refreshToken")
-  private String refreshToken = null;
+public class IterationConfig   {
+  @SerializedName("messageCount")
+  private Integer messageCount = null;
 
-  public RefreshTokenModel refreshToken(String refreshToken) {
-    this.refreshToken = refreshToken;
+  @SerializedName("sampleSize")
+  private Integer sampleSize = null;
+
+  public IterationConfig messageCount(Integer messageCount) {
+    this.messageCount = messageCount;
     return this;
   }
 
    /**
-   * Get refreshToken
-   * @return refreshToken
+   * Get messageCount
+   * @return messageCount
   **/
   @ApiModelProperty(example = "null", value = "")
-  public String getRefreshToken() {
-    return refreshToken;
+  public Integer getMessageCount() {
+    return messageCount;
   }
 
-  public void setRefreshToken(String refreshToken) {
-    this.refreshToken = refreshToken;
+  public void setMessageCount(Integer messageCount) {
+    this.messageCount = messageCount;
+  }
+
+  public IterationConfig sampleSize(Integer sampleSize) {
+    this.sampleSize = sampleSize;
+    return this;
+  }
+
+   /**
+   * Get sampleSize
+   * @return sampleSize
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Integer getSampleSize() {
+    return sampleSize;
+  }
+
+  public void setSampleSize(Integer sampleSize) {
+    this.sampleSize = sampleSize;
   }
 
 
@@ -66,21 +87,23 @@ public class RefreshTokenModel   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RefreshTokenModel refreshTokenModel = (RefreshTokenModel) o;
-    return Objects.equals(this.refreshToken, refreshTokenModel.refreshToken);
+    IterationConfig iterationConfig = (IterationConfig) o;
+    return Objects.equals(this.messageCount, iterationConfig.messageCount) &&
+        Objects.equals(this.sampleSize, iterationConfig.sampleSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(refreshToken);
+    return Objects.hash(messageCount, sampleSize);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RefreshTokenModel {\n");
+    sb.append("class IterationConfig {\n");
     
-    sb.append("    refreshToken: ").append(toIndentedString(refreshToken)).append("\n");
+    sb.append("    messageCount: ").append(toIndentedString(messageCount)).append("\n");
+    sb.append("    sampleSize: ").append(toIndentedString(sampleSize)).append("\n");
     sb.append("}");
     return sb.toString();
   }

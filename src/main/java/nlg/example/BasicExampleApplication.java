@@ -13,8 +13,8 @@ public class BasicExampleApplication {
 
         AuthcontrollerApi apiInstance = new AuthcontrollerApi();
         AuthModel model = new AuthModel(); // AuthModel | model
-        model.setUsername("test");
-        model.setPassword("test");
+        model.setUsername("admin");
+        model.setPassword("admin");
 
         String token = null;
         String refreshToken = null;
@@ -53,21 +53,24 @@ public class BasicExampleApplication {
         }
 
 
-        ConversionExample conversionExample = new ConversionExample();
-        conversionExample.postConversionExperiment(token);
-        conversionExample.getConversionReachExperiment(token);
+        MessagesExample messagesExample = new MessagesExample();
+        messagesExample.postCreateMessagesRich(token);
+        messagesExample.postCreateMessageRichVariations(token);
+//        messagesExample.getMessages(token);
+//        messagesExample.postMessagesFilter(token);
+
+//        ConversionExample conversionExample = new ConversionExample();
+//        conversionExample.postConversionExperiment(token);
+//        conversionExample.getConversionReachExperiment(token);
 
         ExperimentExample experimentExample = new ExperimentExample();
         experimentExample.createExperiment(token);
         experimentExample.getExperiment(token);
-        experimentExample.getExperimentNextMessage(token);
-        experimentExample.getExperimentsByStatus(token);
+//        experimentExample.getExperimentNextMessage(token);
+//        experimentExample.getExperimentsByStatus(token);
 
-        MessagesExample messagesExample = new MessagesExample();
-        messagesExample.getMessages(token);
-        messagesExample.postMessagesFilter(token);
 
-        ShortUrlExample shortUrlExample = new ShortUrlExample();
-        shortUrlExample.getShortUrl(token);
+//        ShortUrlExample shortUrlExample = new ShortUrlExample();
+//        shortUrlExample.getShortUrl(token);
     }
 }

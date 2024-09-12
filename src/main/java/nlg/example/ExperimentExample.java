@@ -1,14 +1,25 @@
 package nlg.example;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import io.swagger.client.ApiClient;
 import io.swagger.client.ApiException;
 import io.swagger.client.api.ExperimentclientcontrollerApi;
-import io.swagger.client.model.DisplayedMessage;
-import io.swagger.client.model.Experiment;
+import io.swagger.client.model.*;
 
+import java.lang.reflect.Type;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ExperimentExample {
+    public static Experiment lastExperiment;
     public void createExperiment(String token) {
         ExperimentclientcontrollerApi apiInstance = new ExperimentclientcontrollerApi();
 
@@ -17,10 +28,23 @@ public class ExperimentExample {
         apiClient.setAccessToken(token);
         try {
             Experiment experiment = new Experiment();
-            experiment.setExperimentName("Test Experiment");
+            String TIMEZONE = "Europe/London";
+            experiment.setExperimentName("NLG_INTEGRATION_CLIENT_" + Instant.now().truncatedTo(ChronoUnit.SECONDS).toString());
+            experiment.setTimezoneUi(TIMEZONE);
+            experiment.setStrategy(Experiment.StrategyEnum.BEST_MESSAGES_ROUNDS_GA);
+            experiment.setStatus(Experiment.StatusEnum.DRAFT);
+            ZoneId defaultTimeZone = ZoneId.of(TIMEZONE);
+            ZonedDateTime experimentStartDateUI = ZonedDateTime.now(defaultTimeZone).plus(5, ChronoUnit.MINUTES);
+            ZonedDateTime experimentEndDateUI = experimentStartDateUI.plus(3, ChronoUnit.HOURS);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+            experiment.setStartDateUi(formatter.format(experimentStartDateUI));
+            experiment.setEndDateUi(formatter.format(experimentEndDateUI));
+            experiment.setMessages(buildExperimentMessages());
+            experiment.setCustomAttributes(buildCustronAttributes());
+            experiment.setChannel("SMS");
 
-            experiment = apiInstance.createExperimentUsingPOST(experiment);
-            System.out.println("Result getExperiment: " + experiment);
+            lastExperiment = apiInstance.createExperimentUsingPOST(experiment);
+            System.out.println("Result createExperiment: " + lastExperiment);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExperimentclientcontrollerApi#createExperimentUsingPOST");
             System.err.println("Error: " + e.getResponseBody());
@@ -34,7 +58,7 @@ public class ExperimentExample {
 
         apiClient.setAccessToken(token);
         try {
-            Long experimentId = 1L;
+            Long experimentId = lastExperiment.getExperimentId();
             Experiment experiment = apiInstance.getExperimentUsingGET(experimentId);
             System.out.println("Result getExperiment: " + experiment);
         } catch (ApiException e) {
@@ -73,5 +97,37 @@ public class ExperimentExample {
             System.err.println("Exception when calling ExperimentclientcontrollerApi#getExperimentsByStatusUsingGET");
             System.err.println("Error: " + e.getResponseBody());
         }
+    }
+
+
+
+    private List<ExperimentMessage> buildExperimentMessages() {
+        List<ExperimentMessage> messages = new ArrayList<>();
+        for (Message message : MessagesExample.lastMessagesAlternatives) {
+            ExperimentMessage experimentMessage = new ExperimentMessage();
+            experimentMessage.setMessageId(message.getMessageId());
+            experimentMessage.setParentId(message.getParentId());
+            experimentMessage.setRichContents(message.getRichContents());
+            experimentMessage.setTags(message.getTags());
+            messages.add(experimentMessage);
+        }
+        return messages;
+    }
+
+    private Map<String, Object> buildCustronAttributes() {
+        Map<String, Object> customAttributes = new HashMap<>();
+        customAttributes.put("custom_x", "aziret");
+        customAttributes.put("populationSize", 10000);
+        customAttributes.put("sample", 10);
+        customAttributes.put("isBothConditions", true);
+        customAttributes.put("iterationResponses", 11);
+        customAttributes.put("iterationDuration", 300000);
+        customAttributes.put("messagesPerIteration", "2");
+        customAttributes.put("sampleSizePerIteration", "10");
+        customAttributes.put("numberOfFinalRounds", "2");
+        customAttributes.put("finalRoundSampleSize", "2");
+        customAttributes.put("finalRoundMessages", "6");
+        customAttributes.put("channel", "SMS");
+        return customAttributes;
     }
 }

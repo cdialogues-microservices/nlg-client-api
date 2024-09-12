@@ -36,7 +36,7 @@ import java.util.Objects;
 /**
  * TrackingResponse
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-09-11T10:24:25.694+06:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-09-13T01:53:44.846+06:00")
 public class TrackingResponse   {
   @SerializedName("modifiedMessage")
   private String modifiedMessage = null;

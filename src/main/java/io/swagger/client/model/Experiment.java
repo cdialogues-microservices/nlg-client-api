@@ -36,7 +36,7 @@ import java.util.Objects;
 /**
  * Experiment
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-09-11T10:24:25.694+06:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-09-13T01:53:44.846+06:00")
 public class Experiment   {
   @SerializedName("channel")
   private String channel = null;
@@ -55,6 +55,9 @@ public class Experiment   {
 
   @SerializedName("experimentName")
   private String experimentName = null;
+
+  @SerializedName("iterationConfiguration")
+  private List<IterationConfig> iterationConfiguration = new ArrayList<IterationConfig>();
 
   @SerializedName("messages")
   private List<ExperimentMessage> messages = new ArrayList<ExperimentMessage>();
@@ -251,6 +254,29 @@ public class Experiment   {
 
   public void setExperimentName(String experimentName) {
     this.experimentName = experimentName;
+  }
+
+  public Experiment iterationConfiguration(List<IterationConfig> iterationConfiguration) {
+    this.iterationConfiguration = iterationConfiguration;
+    return this;
+  }
+
+  public Experiment addIterationConfigurationItem(IterationConfig iterationConfigurationItem) {
+    this.iterationConfiguration.add(iterationConfigurationItem);
+    return this;
+  }
+
+   /**
+   * Get iterationConfiguration
+   * @return iterationConfiguration
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public List<IterationConfig> getIterationConfiguration() {
+    return iterationConfiguration;
+  }
+
+  public void setIterationConfiguration(List<IterationConfig> iterationConfiguration) {
+    this.iterationConfiguration = iterationConfiguration;
   }
 
   public Experiment messages(List<ExperimentMessage> messages) {
@@ -472,6 +498,7 @@ public class Experiment   {
         Objects.equals(this.endDateUi, experiment.endDateUi) &&
         Objects.equals(this.experimentId, experiment.experimentId) &&
         Objects.equals(this.experimentName, experiment.experimentName) &&
+        Objects.equals(this.iterationConfiguration, experiment.iterationConfiguration) &&
         Objects.equals(this.messages, experiment.messages) &&
         Objects.equals(this.segmentId, experiment.segmentId) &&
         Objects.equals(this.segmentName, experiment.segmentName) &&
@@ -487,7 +514,7 @@ public class Experiment   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(channel, customAttributes, endDate, endDateUi, experimentId, experimentName, messages, segmentId, segmentName, startDate, startDateUi, status, strategy, targetUsers, timezoneUi, totalRequests, userExpectedTargetGroupSize);
+    return Objects.hash(channel, customAttributes, endDate, endDateUi, experimentId, experimentName, iterationConfiguration, messages, segmentId, segmentName, startDate, startDateUi, status, strategy, targetUsers, timezoneUi, totalRequests, userExpectedTargetGroupSize);
   }
 
   @Override
@@ -501,6 +528,7 @@ public class Experiment   {
     sb.append("    endDateUi: ").append(toIndentedString(endDateUi)).append("\n");
     sb.append("    experimentId: ").append(toIndentedString(experimentId)).append("\n");
     sb.append("    experimentName: ").append(toIndentedString(experimentName)).append("\n");
+    sb.append("    iterationConfiguration: ").append(toIndentedString(iterationConfiguration)).append("\n");
     sb.append("    messages: ").append(toIndentedString(messages)).append("\n");
     sb.append("    segmentId: ").append(toIndentedString(segmentId)).append("\n");
     sb.append("    segmentName: ").append(toIndentedString(segmentName)).append("\n");
