@@ -20,6 +20,42 @@ import java.util.Map;
 
 public class ExperimentExample {
     public static Experiment lastExperiment;
+
+    public void createExperimentMoreReadable(String token) {
+        ExperimentclientcontrollerApi apiInstance = new ExperimentclientcontrollerApi();
+
+        ApiClient apiClient = apiInstance.getApiClient();
+
+        apiClient.setAccessToken(token);
+        try {
+            ExperimentClient experiment = new ExperimentClient();
+            String TIMEZONE = "Europe/London";
+            experiment.setExperimentName("NLG_INTEGRATION_CLIENT_" + Instant.now().truncatedTo(ChronoUnit.SECONDS).toString());
+            experiment.setTimezoneUi(TIMEZONE);
+            experiment.setStrategy(ExperimentClient.StrategyEnum.BEST_MESSAGES_ROUNDS_GA);
+            experiment.setStatus(ExperimentClient.StatusEnum.DRAFT);
+            ZoneId defaultTimeZone = ZoneId.of(TIMEZONE);
+            ZonedDateTime experimentStartDateUI = ZonedDateTime.now(defaultTimeZone).plus(5, ChronoUnit.MINUTES);
+            ZonedDateTime experimentEndDateUI = experimentStartDateUI.plus(3, ChronoUnit.HOURS);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+            experiment.setStartDateUi(formatter.format(experimentStartDateUI));
+            experiment.setEndDateUi(formatter.format(experimentEndDateUI));
+            experiment.setMessages(buildExperimentMessages());
+            experiment.setGaIterationConfig(buildGaIterationConfig());
+            experiment.setInitialIterationConfig(buildInitialIterationConfig());
+            experiment.setIterationCondition(buildIterationCondition());
+            experiment.setIterationConfiguration(buildIterationConfiguration());
+            experiment.setChannel("SMS");
+
+
+            lastExperiment = apiInstance.createExperimentMoreReadableUsingPOST(experiment);
+            System.out.println("Result createExperimentMoreReadable: " + lastExperiment);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExperimentclientcontrollerApi#createExperimentUsingPOST");
+            System.err.println("Error: " + e.getResponseBody());
+        }
+    }
+
     public void createExperiment(String token) {
         ExperimentclientcontrollerApi apiInstance = new ExperimentclientcontrollerApi();
 
@@ -59,8 +95,8 @@ public class ExperimentExample {
         apiClient.setAccessToken(token);
         try {
             Long experimentId = lastExperiment.getExperimentId();
-            Experiment experiment = apiInstance.getExperimentUsingGET(experimentId);
-            System.out.println("Result getExperiment: " + experiment);
+            lastExperiment = apiInstance.getExperimentUsingGET(experimentId);
+            System.out.println("Result getExperiment: " + lastExperiment);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExperimentclientcontrollerApi#getExperimentUsingGET");
             System.err.println("Error: " + e.getResponseBody());
@@ -110,6 +146,43 @@ public class ExperimentExample {
             messages.add(experimentMessage);
         }
         return messages;
+    }
+
+    private GaIterationConfig buildGaIterationConfig() {
+        GaIterationConfig gaIterationConfig = new GaIterationConfig();
+        gaIterationConfig.setMessageCount(1);
+        gaIterationConfig.setRounds(1);
+        gaIterationConfig.setSampleSize(1);
+        return gaIterationConfig;
+    }
+
+    private InitialIterationConfig buildInitialIterationConfig() {
+        InitialIterationConfig initialIterationConfig = new InitialIterationConfig();
+        initialIterationConfig.setInitialSample(4);
+        initialIterationConfig.setInitialPopulationSize(2);
+        return initialIterationConfig;
+    }
+
+    private IterationCondition buildIterationCondition() {
+        IterationCondition iterationCondition = new IterationCondition();
+        iterationCondition.setIsBothConditions(true);
+        iterationCondition.setIterationDuration(300000);
+        iterationCondition.setIterationResponses(3);
+        return iterationCondition;
+    }
+
+    private List<IterationConfig> buildIterationConfiguration() {
+        List<IterationConfig> iterationConfigurations = new ArrayList<>();
+        IterationConfig iterationConfig = new IterationConfig();
+        iterationConfig.setMessageCount(1);
+        iterationConfig.setSampleSize(2);
+        iterationConfigurations.add(iterationConfig);
+
+        IterationConfig iterationConfig2 = new IterationConfig();
+        iterationConfig2.setMessageCount(2);
+        iterationConfig2.setSampleSize(3);
+        iterationConfigurations.add(iterationConfig2);
+        return iterationConfigurations;
     }
 
     private Map<String, Object> buildCustronAttributes() {

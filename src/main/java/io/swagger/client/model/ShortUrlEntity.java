@@ -35,7 +35,7 @@ import java.util.Objects;
 /**
  * ShortUrlEntity
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-09-13T01:53:44.846+06:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-09-16T11:21:22.833+06:00")
 public class ShortUrlEntity   {
   @SerializedName("code")
   private String code = null;

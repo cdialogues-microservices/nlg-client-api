@@ -32,50 +32,50 @@ import java.util.Objects;
 
 
 /**
- * AuthModel
+ * InitialIterationConfig
  */
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-09-16T11:21:22.833+06:00")
-public class AuthModel   {
-  @SerializedName("password")
-  private String password = null;
+public class InitialIterationConfig   {
+  @SerializedName("initialPopulationSize")
+  private Integer initialPopulationSize = null;
 
-  @SerializedName("username")
-  private String username = null;
+  @SerializedName("initialSample")
+  private Integer initialSample = null;
 
-  public AuthModel password(String password) {
-    this.password = password;
+  public InitialIterationConfig initialPopulationSize(Integer initialPopulationSize) {
+    this.initialPopulationSize = initialPopulationSize;
     return this;
   }
 
    /**
-   * Get password
-   * @return password
+   * Get initialPopulationSize
+   * @return initialPopulationSize
   **/
   @ApiModelProperty(example = "null", value = "")
-  public String getPassword() {
-    return password;
+  public Integer getInitialPopulationSize() {
+    return initialPopulationSize;
   }
 
-  public void setPassword(String password) {
-    this.password = password;
+  public void setInitialPopulationSize(Integer initialPopulationSize) {
+    this.initialPopulationSize = initialPopulationSize;
   }
 
-  public AuthModel username(String username) {
-    this.username = username;
+  public InitialIterationConfig initialSample(Integer initialSample) {
+    this.initialSample = initialSample;
     return this;
   }
 
    /**
-   * Get username
-   * @return username
+   * Get initialSample
+   * @return initialSample
   **/
   @ApiModelProperty(example = "null", value = "")
-  public String getUsername() {
-    return username;
+  public Integer getInitialSample() {
+    return initialSample;
   }
 
-  public void setUsername(String username) {
-    this.username = username;
+  public void setInitialSample(Integer initialSample) {
+    this.initialSample = initialSample;
   }
 
 
@@ -87,23 +87,23 @@ public class AuthModel   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AuthModel authModel = (AuthModel) o;
-    return Objects.equals(this.password, authModel.password) &&
-        Objects.equals(this.username, authModel.username);
+    InitialIterationConfig initialIterationConfig = (InitialIterationConfig) o;
+    return Objects.equals(this.initialPopulationSize, initialIterationConfig.initialPopulationSize) &&
+        Objects.equals(this.initialSample, initialIterationConfig.initialSample);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(password, username);
+    return Objects.hash(initialPopulationSize, initialSample);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AuthModel {\n");
+    sb.append("class InitialIterationConfig {\n");
     
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
+    sb.append("    initialPopulationSize: ").append(toIndentedString(initialPopulationSize)).append("\n");
+    sb.append("    initialSample: ").append(toIndentedString(initialSample)).append("\n");
     sb.append("}");
     return sb.toString();
   }

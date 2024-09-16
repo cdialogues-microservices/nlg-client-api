@@ -59,15 +59,15 @@ public class BasicExampleApplication {
 //        messagesExample.getMessages(token);
 //        messagesExample.postMessagesFilter(token);
 
-//        ConversionExample conversionExample = new ConversionExample();
-//        conversionExample.postConversionExperiment(token);
-//        conversionExample.getConversionReachExperiment(token);
-
         ExperimentExample experimentExample = new ExperimentExample();
-        experimentExample.createExperiment(token);
+        experimentExample.createExperimentMoreReadable(token);
         experimentExample.getExperiment(token);
 //        experimentExample.getExperimentNextMessage(token);
 //        experimentExample.getExperimentsByStatus(token);
+
+        ConversionExample conversionExample = new ConversionExample();
+        conversionExample.postConversionExperiment(token);
+        conversionExample.getConversionReachExperiment(token);
 
 
 //        ShortUrlExample shortUrlExample = new ShortUrlExample();

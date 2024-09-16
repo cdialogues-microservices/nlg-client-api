@@ -32,50 +32,71 @@ import java.util.Objects;
 
 
 /**
- * AuthModel
+ * GaIterationConfig
  */
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-09-16T11:21:22.833+06:00")
-public class AuthModel   {
-  @SerializedName("password")
-  private String password = null;
+public class GaIterationConfig   {
+  @SerializedName("messageCount")
+  private Integer messageCount = null;
 
-  @SerializedName("username")
-  private String username = null;
+  @SerializedName("rounds")
+  private Integer rounds = null;
 
-  public AuthModel password(String password) {
-    this.password = password;
+  @SerializedName("sampleSize")
+  private Integer sampleSize = null;
+
+  public GaIterationConfig messageCount(Integer messageCount) {
+    this.messageCount = messageCount;
     return this;
   }
 
    /**
-   * Get password
-   * @return password
+   * Get messageCount
+   * @return messageCount
   **/
   @ApiModelProperty(example = "null", value = "")
-  public String getPassword() {
-    return password;
+  public Integer getMessageCount() {
+    return messageCount;
   }
 
-  public void setPassword(String password) {
-    this.password = password;
+  public void setMessageCount(Integer messageCount) {
+    this.messageCount = messageCount;
   }
 
-  public AuthModel username(String username) {
-    this.username = username;
+  public GaIterationConfig rounds(Integer rounds) {
+    this.rounds = rounds;
     return this;
   }
 
    /**
-   * Get username
-   * @return username
+   * Get rounds
+   * @return rounds
   **/
   @ApiModelProperty(example = "null", value = "")
-  public String getUsername() {
-    return username;
+  public Integer getRounds() {
+    return rounds;
   }
 
-  public void setUsername(String username) {
-    this.username = username;
+  public void setRounds(Integer rounds) {
+    this.rounds = rounds;
+  }
+
+  public GaIterationConfig sampleSize(Integer sampleSize) {
+    this.sampleSize = sampleSize;
+    return this;
+  }
+
+   /**
+   * Get sampleSize
+   * @return sampleSize
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Integer getSampleSize() {
+    return sampleSize;
+  }
+
+  public void setSampleSize(Integer sampleSize) {
+    this.sampleSize = sampleSize;
   }
 
 
@@ -87,23 +108,25 @@ public class AuthModel   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AuthModel authModel = (AuthModel) o;
-    return Objects.equals(this.password, authModel.password) &&
-        Objects.equals(this.username, authModel.username);
+    GaIterationConfig gaIterationConfig = (GaIterationConfig) o;
+    return Objects.equals(this.messageCount, gaIterationConfig.messageCount) &&
+        Objects.equals(this.rounds, gaIterationConfig.rounds) &&
+        Objects.equals(this.sampleSize, gaIterationConfig.sampleSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(password, username);
+    return Objects.hash(messageCount, rounds, sampleSize);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AuthModel {\n");
+    sb.append("class GaIterationConfig {\n");
     
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
+    sb.append("    messageCount: ").append(toIndentedString(messageCount)).append("\n");
+    sb.append("    rounds: ").append(toIndentedString(rounds)).append("\n");
+    sb.append("    sampleSize: ").append(toIndentedString(sampleSize)).append("\n");
     sb.append("}");
     return sb.toString();
   }

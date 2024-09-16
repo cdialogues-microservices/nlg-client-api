@@ -29,6 +29,7 @@ import com.google.gson.reflect.TypeToken;
 import io.swagger.client.*;
 import io.swagger.client.model.DisplayedMessage;
 import io.swagger.client.model.Experiment;
+import io.swagger.client.model.ExperimentClient;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -56,6 +57,112 @@ public class ExperimentclientcontrollerApi {
         this.apiClient = apiClient;
     }
 
+    /* Build call for createExperimentMoreReadableUsingPOST */
+    private com.squareup.okhttp.Call createExperimentMoreReadableUsingPOSTCall(ExperimentClient experimentClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = experimentClient;
+        
+        // verify the required parameter 'experimentClient' is set
+        if (experimentClient == null) {
+            throw new ApiException("Missing the required parameter 'experimentClient' when calling createExperimentMoreReadableUsingPOST(Async)");
+        }
+        
+
+        // create path and map variables
+        String localVarPath = "/api/v1.0/experiments/client".replaceAll("\\{format\\}","json");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "*/*"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {"BearerTokenAuthentication"};
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * createExperimentMoreReadable
+     * 
+     * @param experimentClient experimentClient (required)
+     * @return Experiment
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Experiment createExperimentMoreReadableUsingPOST(ExperimentClient experimentClient) throws ApiException {
+        ApiResponse<Experiment> resp = createExperimentMoreReadableUsingPOSTWithHttpInfo(experimentClient);
+        return resp.getData();
+    }
+
+    /**
+     * createExperimentMoreReadable
+     * 
+     * @param experimentClient experimentClient (required)
+     * @return ApiResponse&lt;Experiment&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Experiment> createExperimentMoreReadableUsingPOSTWithHttpInfo(ExperimentClient experimentClient) throws ApiException {
+        com.squareup.okhttp.Call call = createExperimentMoreReadableUsingPOSTCall(experimentClient, null, null);
+        Type localVarReturnType = new TypeToken<Experiment>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * createExperimentMoreReadable (asynchronously)
+     * 
+     * @param experimentClient experimentClient (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createExperimentMoreReadableUsingPOSTAsync(ExperimentClient experimentClient, final ApiCallback<Experiment> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createExperimentMoreReadableUsingPOSTCall(experimentClient, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Experiment>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /* Build call for createExperimentUsingPOST */
     private com.squareup.okhttp.Call createExperimentUsingPOSTCall(Experiment experiment, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = experiment;

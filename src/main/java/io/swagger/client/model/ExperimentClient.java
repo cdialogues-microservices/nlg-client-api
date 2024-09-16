@@ -34,42 +34,33 @@ import java.util.Objects;
 
 
 /**
- * Experiment
+ * ExperimentClient
  */
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-09-16T11:21:22.833+06:00")
-public class Experiment   {
+public class ExperimentClient   {
   @SerializedName("channel")
   private String channel = null;
-
-  @SerializedName("customAttributes")
-  private Object customAttributes = null;
-
-  @SerializedName("endDate")
-  private String endDate = null;
 
   @SerializedName("endDate_ui")
   private String endDateUi = null;
 
-  @SerializedName("experimentId")
-  private Long experimentId = null;
-
   @SerializedName("experimentName")
   private String experimentName = null;
+
+  @SerializedName("gaIterationConfig")
+  private GaIterationConfig gaIterationConfig = null;
+
+  @SerializedName("initialIterationConfig")
+  private InitialIterationConfig initialIterationConfig = null;
+
+  @SerializedName("iterationCondition")
+  private IterationCondition iterationCondition = null;
 
   @SerializedName("iterationConfiguration")
   private List<IterationConfig> iterationConfiguration = new ArrayList<IterationConfig>();
 
   @SerializedName("messages")
   private List<ExperimentMessage> messages = new ArrayList<ExperimentMessage>();
-
-  @SerializedName("segmentId")
-  private Long segmentId = null;
-
-  @SerializedName("segmentName")
-  private String segmentName = null;
-
-  @SerializedName("startDate")
-  private String startDate = null;
 
   @SerializedName("startDate_ui")
   private String startDateUi = null;
@@ -136,19 +127,13 @@ public class Experiment   {
   @SerializedName("strategy")
   private StrategyEnum strategy = null;
 
-  @SerializedName("targetUsers")
-  private Integer targetUsers = null;
-
   @SerializedName("timezone_ui")
   private String timezoneUi = null;
-
-  @SerializedName("totalRequests")
-  private Long totalRequests = null;
 
   @SerializedName("userExpectedTargetGroupSize")
   private Long userExpectedTargetGroupSize = null;
 
-  public Experiment channel(String channel) {
+  public ExperimentClient channel(String channel) {
     this.channel = channel;
     return this;
   }
@@ -166,43 +151,7 @@ public class Experiment   {
     this.channel = channel;
   }
 
-  public Experiment customAttributes(Object customAttributes) {
-    this.customAttributes = customAttributes;
-    return this;
-  }
-
-   /**
-   * Get customAttributes
-   * @return customAttributes
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Object getCustomAttributes() {
-    return customAttributes;
-  }
-
-  public void setCustomAttributes(Object customAttributes) {
-    this.customAttributes = customAttributes;
-  }
-
-  public Experiment endDate(String endDate) {
-    this.endDate = endDate;
-    return this;
-  }
-
-   /**
-   * Get endDate
-   * @return endDate
-  **/
-  @ApiModelProperty(example = "yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;", value = "")
-  public String getEndDate() {
-    return endDate;
-  }
-
-  public void setEndDate(String endDate) {
-    this.endDate = endDate;
-  }
-
-  public Experiment endDateUi(String endDateUi) {
+  public ExperimentClient endDateUi(String endDateUi) {
     this.endDateUi = endDateUi;
     return this;
   }
@@ -220,25 +169,7 @@ public class Experiment   {
     this.endDateUi = endDateUi;
   }
 
-  public Experiment experimentId(Long experimentId) {
-    this.experimentId = experimentId;
-    return this;
-  }
-
-   /**
-   * Get experimentId
-   * @return experimentId
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Long getExperimentId() {
-    return experimentId;
-  }
-
-  public void setExperimentId(Long experimentId) {
-    this.experimentId = experimentId;
-  }
-
-  public Experiment experimentName(String experimentName) {
+  public ExperimentClient experimentName(String experimentName) {
     this.experimentName = experimentName;
     return this;
   }
@@ -256,12 +187,66 @@ public class Experiment   {
     this.experimentName = experimentName;
   }
 
-  public Experiment iterationConfiguration(List<IterationConfig> iterationConfiguration) {
+  public ExperimentClient gaIterationConfig(GaIterationConfig gaIterationConfig) {
+    this.gaIterationConfig = gaIterationConfig;
+    return this;
+  }
+
+   /**
+   * Get gaIterationConfig
+   * @return gaIterationConfig
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public GaIterationConfig getGaIterationConfig() {
+    return gaIterationConfig;
+  }
+
+  public void setGaIterationConfig(GaIterationConfig gaIterationConfig) {
+    this.gaIterationConfig = gaIterationConfig;
+  }
+
+  public ExperimentClient initialIterationConfig(InitialIterationConfig initialIterationConfig) {
+    this.initialIterationConfig = initialIterationConfig;
+    return this;
+  }
+
+   /**
+   * Get initialIterationConfig
+   * @return initialIterationConfig
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public InitialIterationConfig getInitialIterationConfig() {
+    return initialIterationConfig;
+  }
+
+  public void setInitialIterationConfig(InitialIterationConfig initialIterationConfig) {
+    this.initialIterationConfig = initialIterationConfig;
+  }
+
+  public ExperimentClient iterationCondition(IterationCondition iterationCondition) {
+    this.iterationCondition = iterationCondition;
+    return this;
+  }
+
+   /**
+   * Get iterationCondition
+   * @return iterationCondition
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public IterationCondition getIterationCondition() {
+    return iterationCondition;
+  }
+
+  public void setIterationCondition(IterationCondition iterationCondition) {
+    this.iterationCondition = iterationCondition;
+  }
+
+  public ExperimentClient iterationConfiguration(List<IterationConfig> iterationConfiguration) {
     this.iterationConfiguration = iterationConfiguration;
     return this;
   }
 
-  public Experiment addIterationConfigurationItem(IterationConfig iterationConfigurationItem) {
+  public ExperimentClient addIterationConfigurationItem(IterationConfig iterationConfigurationItem) {
     this.iterationConfiguration.add(iterationConfigurationItem);
     return this;
   }
@@ -279,12 +264,12 @@ public class Experiment   {
     this.iterationConfiguration = iterationConfiguration;
   }
 
-  public Experiment messages(List<ExperimentMessage> messages) {
+  public ExperimentClient messages(List<ExperimentMessage> messages) {
     this.messages = messages;
     return this;
   }
 
-  public Experiment addMessagesItem(ExperimentMessage messagesItem) {
+  public ExperimentClient addMessagesItem(ExperimentMessage messagesItem) {
     this.messages.add(messagesItem);
     return this;
   }
@@ -302,61 +287,7 @@ public class Experiment   {
     this.messages = messages;
   }
 
-  public Experiment segmentId(Long segmentId) {
-    this.segmentId = segmentId;
-    return this;
-  }
-
-   /**
-   * Get segmentId
-   * @return segmentId
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Long getSegmentId() {
-    return segmentId;
-  }
-
-  public void setSegmentId(Long segmentId) {
-    this.segmentId = segmentId;
-  }
-
-  public Experiment segmentName(String segmentName) {
-    this.segmentName = segmentName;
-    return this;
-  }
-
-   /**
-   * Get segmentName
-   * @return segmentName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getSegmentName() {
-    return segmentName;
-  }
-
-  public void setSegmentName(String segmentName) {
-    this.segmentName = segmentName;
-  }
-
-  public Experiment startDate(String startDate) {
-    this.startDate = startDate;
-    return this;
-  }
-
-   /**
-   * Get startDate
-   * @return startDate
-  **/
-  @ApiModelProperty(example = "yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;", value = "")
-  public String getStartDate() {
-    return startDate;
-  }
-
-  public void setStartDate(String startDate) {
-    this.startDate = startDate;
-  }
-
-  public Experiment startDateUi(String startDateUi) {
+  public ExperimentClient startDateUi(String startDateUi) {
     this.startDateUi = startDateUi;
     return this;
   }
@@ -374,7 +305,7 @@ public class Experiment   {
     this.startDateUi = startDateUi;
   }
 
-  public Experiment status(StatusEnum status) {
+  public ExperimentClient status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -392,7 +323,7 @@ public class Experiment   {
     this.status = status;
   }
 
-  public Experiment strategy(StrategyEnum strategy) {
+  public ExperimentClient strategy(StrategyEnum strategy) {
     this.strategy = strategy;
     return this;
   }
@@ -410,25 +341,7 @@ public class Experiment   {
     this.strategy = strategy;
   }
 
-  public Experiment targetUsers(Integer targetUsers) {
-    this.targetUsers = targetUsers;
-    return this;
-  }
-
-   /**
-   * Get targetUsers
-   * @return targetUsers
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Integer getTargetUsers() {
-    return targetUsers;
-  }
-
-  public void setTargetUsers(Integer targetUsers) {
-    this.targetUsers = targetUsers;
-  }
-
-  public Experiment timezoneUi(String timezoneUi) {
+  public ExperimentClient timezoneUi(String timezoneUi) {
     this.timezoneUi = timezoneUi;
     return this;
   }
@@ -446,25 +359,7 @@ public class Experiment   {
     this.timezoneUi = timezoneUi;
   }
 
-  public Experiment totalRequests(Long totalRequests) {
-    this.totalRequests = totalRequests;
-    return this;
-  }
-
-   /**
-   * Get totalRequests
-   * @return totalRequests
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Long getTotalRequests() {
-    return totalRequests;
-  }
-
-  public void setTotalRequests(Long totalRequests) {
-    this.totalRequests = totalRequests;
-  }
-
-  public Experiment userExpectedTargetGroupSize(Long userExpectedTargetGroupSize) {
+  public ExperimentClient userExpectedTargetGroupSize(Long userExpectedTargetGroupSize) {
     this.userExpectedTargetGroupSize = userExpectedTargetGroupSize;
     return this;
   }
@@ -491,54 +386,44 @@ public class Experiment   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Experiment experiment = (Experiment) o;
-    return Objects.equals(this.channel, experiment.channel) &&
-        Objects.equals(this.customAttributes, experiment.customAttributes) &&
-        Objects.equals(this.endDate, experiment.endDate) &&
-        Objects.equals(this.endDateUi, experiment.endDateUi) &&
-        Objects.equals(this.experimentId, experiment.experimentId) &&
-        Objects.equals(this.experimentName, experiment.experimentName) &&
-        Objects.equals(this.iterationConfiguration, experiment.iterationConfiguration) &&
-        Objects.equals(this.messages, experiment.messages) &&
-        Objects.equals(this.segmentId, experiment.segmentId) &&
-        Objects.equals(this.segmentName, experiment.segmentName) &&
-        Objects.equals(this.startDate, experiment.startDate) &&
-        Objects.equals(this.startDateUi, experiment.startDateUi) &&
-        Objects.equals(this.status, experiment.status) &&
-        Objects.equals(this.strategy, experiment.strategy) &&
-        Objects.equals(this.targetUsers, experiment.targetUsers) &&
-        Objects.equals(this.timezoneUi, experiment.timezoneUi) &&
-        Objects.equals(this.totalRequests, experiment.totalRequests) &&
-        Objects.equals(this.userExpectedTargetGroupSize, experiment.userExpectedTargetGroupSize);
+    ExperimentClient experimentClient = (ExperimentClient) o;
+    return Objects.equals(this.channel, experimentClient.channel) &&
+        Objects.equals(this.endDateUi, experimentClient.endDateUi) &&
+        Objects.equals(this.experimentName, experimentClient.experimentName) &&
+        Objects.equals(this.gaIterationConfig, experimentClient.gaIterationConfig) &&
+        Objects.equals(this.initialIterationConfig, experimentClient.initialIterationConfig) &&
+        Objects.equals(this.iterationCondition, experimentClient.iterationCondition) &&
+        Objects.equals(this.iterationConfiguration, experimentClient.iterationConfiguration) &&
+        Objects.equals(this.messages, experimentClient.messages) &&
+        Objects.equals(this.startDateUi, experimentClient.startDateUi) &&
+        Objects.equals(this.status, experimentClient.status) &&
+        Objects.equals(this.strategy, experimentClient.strategy) &&
+        Objects.equals(this.timezoneUi, experimentClient.timezoneUi) &&
+        Objects.equals(this.userExpectedTargetGroupSize, experimentClient.userExpectedTargetGroupSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(channel, customAttributes, endDate, endDateUi, experimentId, experimentName, iterationConfiguration, messages, segmentId, segmentName, startDate, startDateUi, status, strategy, targetUsers, timezoneUi, totalRequests, userExpectedTargetGroupSize);
+    return Objects.hash(channel, endDateUi, experimentName, gaIterationConfig, initialIterationConfig, iterationCondition, iterationConfiguration, messages, startDateUi, status, strategy, timezoneUi, userExpectedTargetGroupSize);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Experiment {\n");
+    sb.append("class ExperimentClient {\n");
     
     sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
-    sb.append("    customAttributes: ").append(toIndentedString(customAttributes)).append("\n");
-    sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
     sb.append("    endDateUi: ").append(toIndentedString(endDateUi)).append("\n");
-    sb.append("    experimentId: ").append(toIndentedString(experimentId)).append("\n");
     sb.append("    experimentName: ").append(toIndentedString(experimentName)).append("\n");
+    sb.append("    gaIterationConfig: ").append(toIndentedString(gaIterationConfig)).append("\n");
+    sb.append("    initialIterationConfig: ").append(toIndentedString(initialIterationConfig)).append("\n");
+    sb.append("    iterationCondition: ").append(toIndentedString(iterationCondition)).append("\n");
     sb.append("    iterationConfiguration: ").append(toIndentedString(iterationConfiguration)).append("\n");
     sb.append("    messages: ").append(toIndentedString(messages)).append("\n");
-    sb.append("    segmentId: ").append(toIndentedString(segmentId)).append("\n");
-    sb.append("    segmentName: ").append(toIndentedString(segmentName)).append("\n");
-    sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    startDateUi: ").append(toIndentedString(startDateUi)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    strategy: ").append(toIndentedString(strategy)).append("\n");
-    sb.append("    targetUsers: ").append(toIndentedString(targetUsers)).append("\n");
     sb.append("    timezoneUi: ").append(toIndentedString(timezoneUi)).append("\n");
-    sb.append("    totalRequests: ").append(toIndentedString(totalRequests)).append("\n");
     sb.append("    userExpectedTargetGroupSize: ").append(toIndentedString(userExpectedTargetGroupSize)).append("\n");
     sb.append("}");
     return sb.toString();
