@@ -15,10 +15,10 @@ public class ShortUrlExample {
         apiClient.setAccessToken(token);
         try {
             TrackingRequest request = new TrackingRequest();
-            request.setExperimentId(1L);
-            request.setMessageId(1L);
+            request.setExperimentId(ExperimentExample.lastExperiment.getExperimentId());
+            request.setMessageId(ExperimentExample.lastExperiment.getMessages().stream().findFirst().get().getMessageId());
             request.setOriginalMessage("originalMessage");
-            request.setUserId("userId");
+            request.setUserId("demo-api");
 
             TrackingResponse trackingResponse = apiInstance.applyTrackingUsingPOST(request);
             System.out.println("Result getShortUrl: " + trackingResponse);

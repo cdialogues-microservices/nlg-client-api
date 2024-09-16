@@ -12,7 +12,7 @@ public class BasicExampleApplication {
     public static void main(String[] args) {
 
         AuthcontrollerApi apiInstance = new AuthcontrollerApi();
-        AuthModel model = new AuthModel(); // AuthModel | model
+        AuthModel model = new AuthModel();
         model.setUsername("api-demo");
         model.setPassword("api-demo");
 
@@ -56,21 +56,16 @@ public class BasicExampleApplication {
         MessagesExample messagesExample = new MessagesExample();
         messagesExample.postCreateMessagesRich(token);
         messagesExample.postCreateMessageRichVariations(token);
-//        messagesExample.getMessages(token);
-//        messagesExample.postMessagesFilter(token);
 
         ExperimentExample experimentExample = new ExperimentExample();
         experimentExample.createExperimentMoreReadable(token);
         experimentExample.getExperiment(token);
-//        experimentExample.getExperimentNextMessage(token);
-//        experimentExample.getExperimentsByStatus(token);
 
         ConversionExample conversionExample = new ConversionExample();
         conversionExample.postConversionExperiment(token);
         conversionExample.getConversionReachExperiment(token);
 
-
-//        ShortUrlExample shortUrlExample = new ShortUrlExample();
-//        shortUrlExample.getShortUrl(token);
+        ShortUrlExample shortUrlExample = new ShortUrlExample();
+        shortUrlExample.getShortUrl(token);
     }
 }

@@ -1,13 +1,10 @@
 package nlg.example;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import io.swagger.client.ApiClient;
 import io.swagger.client.ApiException;
 import io.swagger.client.api.ExperimentclientcontrollerApi;
 import io.swagger.client.model.*;
 
-import java.lang.reflect.Type;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
