@@ -18,7 +18,7 @@ public class ShortUrlExample {
             request.setExperimentId(ExperimentExample.lastExperiment.getExperimentId());
             request.setMessageId(ExperimentExample.lastExperiment.getMessages().stream().findFirst().get().getMessageId());
             request.setOriginalMessage("originalMessage");
-            request.setUserId("demo-api");
+            request.setUserId("16");
 
             TrackingResponse trackingResponse = apiInstance.applyTrackingUsingPOST(request);
             System.out.println("Result getShortUrl: " + trackingResponse);
