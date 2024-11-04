@@ -25,17 +25,20 @@
 
 package io.swagger.client.model;
 
-import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModelProperty;
-
 import java.util.Objects;
+import com.google.gson.annotations.SerializedName;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
 /**
  * Tag
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-09-16T11:21:22.833+06:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-11-04T18:17:47.168+06:00")
 public class Tag   {
+  @SerializedName("global")
+  private Boolean global = null;
+
   @SerializedName("id")
   private Long id = null;
 
@@ -100,6 +103,27 @@ public class Tag   {
 
   @SerializedName("tagType")
   private TagTypeEnum tagType = null;
+
+  @SerializedName("teamOwnership")
+  private String teamOwnership = null;
+
+  public Tag global(Boolean global) {
+    this.global = global;
+    return this;
+  }
+
+   /**
+   * Get global
+   * @return global
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Boolean getGlobal() {
+    return global;
+  }
+
+  public void setGlobal(Boolean global) {
+    this.global = global;
+  }
 
   public Tag id(Long id) {
     this.id = id;
@@ -173,6 +197,24 @@ public class Tag   {
     this.tagType = tagType;
   }
 
+  public Tag teamOwnership(String teamOwnership) {
+    this.teamOwnership = teamOwnership;
+    return this;
+  }
+
+   /**
+   * Get teamOwnership
+   * @return teamOwnership
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getTeamOwnership() {
+    return teamOwnership;
+  }
+
+  public void setTeamOwnership(String teamOwnership) {
+    this.teamOwnership = teamOwnership;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -183,15 +225,17 @@ public class Tag   {
       return false;
     }
     Tag tag = (Tag) o;
-    return Objects.equals(this.id, tag.id) &&
+    return Objects.equals(this.global, tag.global) &&
+        Objects.equals(this.id, tag.id) &&
         Objects.equals(this.tagCategory, tag.tagCategory) &&
         Objects.equals(this.tagName, tag.tagName) &&
-        Objects.equals(this.tagType, tag.tagType);
+        Objects.equals(this.tagType, tag.tagType) &&
+        Objects.equals(this.teamOwnership, tag.teamOwnership);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tagCategory, tagName, tagType);
+    return Objects.hash(global, id, tagCategory, tagName, tagType, teamOwnership);
   }
 
   @Override
@@ -199,10 +243,12 @@ public class Tag   {
     StringBuilder sb = new StringBuilder();
     sb.append("class Tag {\n");
     
+    sb.append("    global: ").append(toIndentedString(global)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    tagCategory: ").append(toIndentedString(tagCategory)).append("\n");
     sb.append("    tagName: ").append(toIndentedString(tagName)).append("\n");
     sb.append("    tagType: ").append(toIndentedString(tagType)).append("\n");
+    sb.append("    teamOwnership: ").append(toIndentedString(teamOwnership)).append("\n");
     sb.append("}");
     return sb.toString();
   }

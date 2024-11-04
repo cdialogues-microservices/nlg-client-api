@@ -25,25 +25,30 @@
 
 package io.swagger.client.model;
 
+import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
+import io.swagger.client.model.RichContent;
+import io.swagger.client.model.Tag;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 
 /**
  * ExperimentMessage
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-09-16T11:21:22.833+06:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-11-04T18:17:47.168+06:00")
 public class ExperimentMessage   {
   @SerializedName("content")
   private String content = null;
 
   @SerializedName("conversions")
   private Long conversions = null;
+
+  @SerializedName("experimentId")
+  private Long experimentId = null;
 
   @SerializedName("impressions")
   private Long impressions = null;
@@ -103,6 +108,24 @@ public class ExperimentMessage   {
 
   public void setConversions(Long conversions) {
     this.conversions = conversions;
+  }
+
+  public ExperimentMessage experimentId(Long experimentId) {
+    this.experimentId = experimentId;
+    return this;
+  }
+
+   /**
+   * Get experimentId
+   * @return experimentId
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Long getExperimentId() {
+    return experimentId;
+  }
+
+  public void setExperimentId(Long experimentId) {
+    this.experimentId = experimentId;
   }
 
   public ExperimentMessage impressions(Long impressions) {
@@ -271,6 +294,7 @@ public class ExperimentMessage   {
     ExperimentMessage experimentMessage = (ExperimentMessage) o;
     return Objects.equals(this.content, experimentMessage.content) &&
         Objects.equals(this.conversions, experimentMessage.conversions) &&
+        Objects.equals(this.experimentId, experimentMessage.experimentId) &&
         Objects.equals(this.impressions, experimentMessage.impressions) &&
         Objects.equals(this.messageId, experimentMessage.messageId) &&
         Objects.equals(this.parentId, experimentMessage.parentId) &&
@@ -283,7 +307,7 @@ public class ExperimentMessage   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, conversions, impressions, messageId, parentId, percentage, reach, richContents, score, tags);
+    return Objects.hash(content, conversions, experimentId, impressions, messageId, parentId, percentage, reach, richContents, score, tags);
   }
 
   @Override
@@ -293,6 +317,7 @@ public class ExperimentMessage   {
     
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    conversions: ").append(toIndentedString(conversions)).append("\n");
+    sb.append("    experimentId: ").append(toIndentedString(experimentId)).append("\n");
     sb.append("    impressions: ").append(toIndentedString(impressions)).append("\n");
     sb.append("    messageId: ").append(toIndentedString(messageId)).append("\n");
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");

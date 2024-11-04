@@ -100,6 +100,23 @@ public class ExperimentExample {
         }
     }
 
+    public void getExperimentNextMessagePush(String token) {
+        ExperimentclientcontrollerApi apiInstance = new ExperimentclientcontrollerApi();
+
+        ApiClient apiClient = apiInstance.getApiClient();
+
+        apiClient.setAccessToken(token);
+        try {
+            Long experimentId = lastExperiment.getExperimentId();
+            String userId = "16";
+            DisplayedMessage displayedMessage = apiInstance.getNextMessagePushByExperimentIdUsingGET(experimentId, userId);
+            System.out.println("Result getExperimentPush: " + displayedMessage);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExperimentclientcontrollerApi#getExperimentPushUsingGET");
+            System.err.println("Error: " + e.getResponseBody());
+        }
+    }
+
     public void getExperimentNextMessage(String token) {
         ExperimentclientcontrollerApi apiInstance = new ExperimentclientcontrollerApi();
 

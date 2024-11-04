@@ -25,19 +25,23 @@
 
 package io.swagger.client.model;
 
+import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
+import io.swagger.client.model.Tag;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 
 /**
  * RichContent
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-09-16T11:21:22.833+06:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-11-04T18:17:47.168+06:00")
 public class RichContent   {
+  @SerializedName("data")
+  private byte[] data = null;
+
   @SerializedName("position")
   private Integer position = null;
 
@@ -86,6 +90,24 @@ public class RichContent   {
 
   @SerializedName("type")
   private TypeEnum type = null;
+
+  public RichContent data(byte[] data) {
+    this.data = data;
+    return this;
+  }
+
+   /**
+   * Get data
+   * @return data
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public byte[] getData() {
+    return data;
+  }
+
+  public void setData(byte[] data) {
+    this.data = data;
+  }
 
   public RichContent position(Integer position) {
     this.position = position;
@@ -210,7 +232,8 @@ public class RichContent   {
       return false;
     }
     RichContent richContent = (RichContent) o;
-    return Objects.equals(this.position, richContent.position) &&
+    return Objects.equals(this.data, richContent.data) &&
+        Objects.equals(this.position, richContent.position) &&
         Objects.equals(this.positionId, richContent.positionId) &&
         Objects.equals(this.richContentID, richContent.richContentID) &&
         Objects.equals(this.tags, richContent.tags) &&
@@ -220,7 +243,7 @@ public class RichContent   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(position, positionId, richContentID, tags, text, type);
+    return Objects.hash(data, position, positionId, richContentID, tags, text, type);
   }
 
   @Override
@@ -228,6 +251,7 @@ public class RichContent   {
     StringBuilder sb = new StringBuilder();
     sb.append("class RichContent {\n");
     
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    position: ").append(toIndentedString(position)).append("\n");
     sb.append("    positionId: ").append(toIndentedString(positionId)).append("\n");
     sb.append("    richContentID: ").append(toIndentedString(richContentID)).append("\n");

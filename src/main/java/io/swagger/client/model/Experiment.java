@@ -25,18 +25,20 @@
 
 package io.swagger.client.model;
 
+import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
+import io.swagger.client.model.ExperimentMessage;
+import io.swagger.client.model.IterationConfig;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 
 /**
  * Experiment
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-09-16T11:21:22.833+06:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-11-04T18:17:47.168+06:00")
 public class Experiment   {
   @SerializedName("channel")
   private String channel = null;
@@ -91,7 +93,10 @@ public class Experiment   {
     CANCELLED("CANCELLED"),
     
     @SerializedName("COMPLETED")
-    COMPLETED("COMPLETED");
+    COMPLETED("COMPLETED"),
+    
+    @SerializedName("DELETED")
+    DELETED("DELETED");
 
     private String value;
 
@@ -138,6 +143,9 @@ public class Experiment   {
 
   @SerializedName("targetUsers")
   private Integer targetUsers = null;
+
+  @SerializedName("teamOwnership")
+  private String teamOwnership = null;
 
   @SerializedName("timezone_ui")
   private String timezoneUi = null;
@@ -428,6 +436,24 @@ public class Experiment   {
     this.targetUsers = targetUsers;
   }
 
+  public Experiment teamOwnership(String teamOwnership) {
+    this.teamOwnership = teamOwnership;
+    return this;
+  }
+
+   /**
+   * Get teamOwnership
+   * @return teamOwnership
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getTeamOwnership() {
+    return teamOwnership;
+  }
+
+  public void setTeamOwnership(String teamOwnership) {
+    this.teamOwnership = teamOwnership;
+  }
+
   public Experiment timezoneUi(String timezoneUi) {
     this.timezoneUi = timezoneUi;
     return this;
@@ -507,6 +533,7 @@ public class Experiment   {
         Objects.equals(this.status, experiment.status) &&
         Objects.equals(this.strategy, experiment.strategy) &&
         Objects.equals(this.targetUsers, experiment.targetUsers) &&
+        Objects.equals(this.teamOwnership, experiment.teamOwnership) &&
         Objects.equals(this.timezoneUi, experiment.timezoneUi) &&
         Objects.equals(this.totalRequests, experiment.totalRequests) &&
         Objects.equals(this.userExpectedTargetGroupSize, experiment.userExpectedTargetGroupSize);
@@ -514,7 +541,7 @@ public class Experiment   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(channel, customAttributes, endDate, endDateUi, experimentId, experimentName, iterationConfiguration, messages, segmentId, segmentName, startDate, startDateUi, status, strategy, targetUsers, timezoneUi, totalRequests, userExpectedTargetGroupSize);
+    return Objects.hash(channel, customAttributes, endDate, endDateUi, experimentId, experimentName, iterationConfiguration, messages, segmentId, segmentName, startDate, startDateUi, status, strategy, targetUsers, teamOwnership, timezoneUi, totalRequests, userExpectedTargetGroupSize);
   }
 
   @Override
@@ -537,6 +564,7 @@ public class Experiment   {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    strategy: ").append(toIndentedString(strategy)).append("\n");
     sb.append("    targetUsers: ").append(toIndentedString(targetUsers)).append("\n");
+    sb.append("    teamOwnership: ").append(toIndentedString(teamOwnership)).append("\n");
     sb.append("    timezoneUi: ").append(toIndentedString(timezoneUi)).append("\n");
     sb.append("    totalRequests: ").append(toIndentedString(totalRequests)).append("\n");
     sb.append("    userExpectedTargetGroupSize: ").append(toIndentedString(userExpectedTargetGroupSize)).append("\n");

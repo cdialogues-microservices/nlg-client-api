@@ -25,18 +25,20 @@
 
 package io.swagger.client.model;
 
+import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
+import io.swagger.client.model.RichContent;
+import io.swagger.client.model.Tag;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 
 /**
  * Message
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-09-16T11:21:22.833+06:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-11-04T18:17:47.168+06:00")
 public class Message   {
   @SerializedName("dateSubmitted")
   private String dateSubmitted = null;
@@ -46,9 +48,6 @@ public class Message   {
 
   @SerializedName("messageId")
   private Long messageId = null;
-
-  @SerializedName("messageParts")
-  private List<MessagePart> messageParts = new ArrayList<MessagePart>();
 
   @SerializedName("parentId")
   private Long parentId = null;
@@ -98,6 +97,9 @@ public class Message   {
 
   @SerializedName("tags")
   private List<Tag> tags = new ArrayList<Tag>();
+
+  @SerializedName("teamOwnership")
+  private String teamOwnership = null;
 
   @SerializedName("text")
   private String text = null;
@@ -154,29 +156,6 @@ public class Message   {
 
   public void setMessageId(Long messageId) {
     this.messageId = messageId;
-  }
-
-  public Message messageParts(List<MessagePart> messageParts) {
-    this.messageParts = messageParts;
-    return this;
-  }
-
-  public Message addMessagePartsItem(MessagePart messagePartsItem) {
-    this.messageParts.add(messagePartsItem);
-    return this;
-  }
-
-   /**
-   * Get messageParts
-   * @return messageParts
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public List<MessagePart> getMessageParts() {
-    return messageParts;
-  }
-
-  public void setMessageParts(List<MessagePart> messageParts) {
-    this.messageParts = messageParts;
   }
 
   public Message parentId(Long parentId) {
@@ -261,6 +240,24 @@ public class Message   {
     this.tags = tags;
   }
 
+  public Message teamOwnership(String teamOwnership) {
+    this.teamOwnership = teamOwnership;
+    return this;
+  }
+
+   /**
+   * Get teamOwnership
+   * @return teamOwnership
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getTeamOwnership() {
+    return teamOwnership;
+  }
+
+  public void setTeamOwnership(String teamOwnership) {
+    this.teamOwnership = teamOwnership;
+  }
+
   public Message text(String text) {
     this.text = text;
     return this;
@@ -292,17 +289,17 @@ public class Message   {
     return Objects.equals(this.dateSubmitted, message.dateSubmitted) &&
         Objects.equals(this.dateUpdated, message.dateUpdated) &&
         Objects.equals(this.messageId, message.messageId) &&
-        Objects.equals(this.messageParts, message.messageParts) &&
         Objects.equals(this.parentId, message.parentId) &&
         Objects.equals(this.richContents, message.richContents) &&
         Objects.equals(this.status, message.status) &&
         Objects.equals(this.tags, message.tags) &&
+        Objects.equals(this.teamOwnership, message.teamOwnership) &&
         Objects.equals(this.text, message.text);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dateSubmitted, dateUpdated, messageId, messageParts, parentId, richContents, status, tags, text);
+    return Objects.hash(dateSubmitted, dateUpdated, messageId, parentId, richContents, status, tags, teamOwnership, text);
   }
 
   @Override
@@ -313,11 +310,11 @@ public class Message   {
     sb.append("    dateSubmitted: ").append(toIndentedString(dateSubmitted)).append("\n");
     sb.append("    dateUpdated: ").append(toIndentedString(dateUpdated)).append("\n");
     sb.append("    messageId: ").append(toIndentedString(messageId)).append("\n");
-    sb.append("    messageParts: ").append(toIndentedString(messageParts)).append("\n");
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    richContents: ").append(toIndentedString(richContents)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    teamOwnership: ").append(toIndentedString(teamOwnership)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("}");
     return sb.toString();
