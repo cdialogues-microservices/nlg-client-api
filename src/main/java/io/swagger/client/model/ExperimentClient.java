@@ -25,18 +25,23 @@
 
 package io.swagger.client.model;
 
+import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
+import io.swagger.client.model.ExperimentMessage;
+import io.swagger.client.model.GaIterationConfig;
+import io.swagger.client.model.InitialIterationConfig;
+import io.swagger.client.model.IterationCondition;
+import io.swagger.client.model.IterationConfig;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 
 /**
  * ExperimentClient
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-09-16T11:21:22.833+06:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-29T19:02:02.404+06:00")
 public class ExperimentClient   {
   @SerializedName("channel")
   private String channel = null;
@@ -82,7 +87,13 @@ public class ExperimentClient   {
     CANCELLED("CANCELLED"),
     
     @SerializedName("COMPLETED")
-    COMPLETED("COMPLETED");
+    COMPLETED("COMPLETED"),
+    
+    @SerializedName("DELETED")
+    DELETED("DELETED"),
+    
+    @SerializedName("FACEBOOK_TRANSFERRED")
+    FACEBOOK_TRANSFERRED("FACEBOOK_TRANSFERRED");
 
     private String value;
 
@@ -379,7 +390,7 @@ public class ExperimentClient   {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -433,7 +444,7 @@ public class ExperimentClient   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

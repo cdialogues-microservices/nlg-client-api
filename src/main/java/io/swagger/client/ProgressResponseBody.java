@@ -27,9 +27,14 @@ package io.swagger.client;
 
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.ResponseBody;
-import okio.*;
 
 import java.io.IOException;
+
+import okio.Buffer;
+import okio.BufferedSource;
+import okio.ForwardingSource;
+import okio.Okio;
+import okio.Source;
 
 public class ProgressResponseBody extends ResponseBody {
 

@@ -25,18 +25,20 @@
 
 package io.swagger.client.model;
 
+import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
+import io.swagger.client.model.RichContent;
+import io.swagger.client.model.TemplateContextConfig;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 
 /**
  * DisplayedMessage
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-09-16T11:21:22.833+06:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-29T19:02:02.404+06:00")
 public class DisplayedMessage   {
   @SerializedName("experimentId")
   private Long experimentId = null;
@@ -46,6 +48,12 @@ public class DisplayedMessage   {
 
   @SerializedName("richContents")
   private List<RichContent> richContents = new ArrayList<RichContent>();
+
+  @SerializedName("targetGroupName")
+  private String targetGroupName = null;
+
+  @SerializedName("templateContextConfig")
+  private TemplateContextConfig templateContextConfig = null;
 
   @SerializedName("text")
   private String text = null;
@@ -109,6 +117,42 @@ public class DisplayedMessage   {
     this.richContents = richContents;
   }
 
+  public DisplayedMessage targetGroupName(String targetGroupName) {
+    this.targetGroupName = targetGroupName;
+    return this;
+  }
+
+   /**
+   * Get targetGroupName
+   * @return targetGroupName
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getTargetGroupName() {
+    return targetGroupName;
+  }
+
+  public void setTargetGroupName(String targetGroupName) {
+    this.targetGroupName = targetGroupName;
+  }
+
+  public DisplayedMessage templateContextConfig(TemplateContextConfig templateContextConfig) {
+    this.templateContextConfig = templateContextConfig;
+    return this;
+  }
+
+   /**
+   * Get templateContextConfig
+   * @return templateContextConfig
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public TemplateContextConfig getTemplateContextConfig() {
+    return templateContextConfig;
+  }
+
+  public void setTemplateContextConfig(TemplateContextConfig templateContextConfig) {
+    this.templateContextConfig = templateContextConfig;
+  }
+
   public DisplayedMessage text(String text) {
     this.text = text;
     return this;
@@ -129,7 +173,7 @@ public class DisplayedMessage   {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -140,12 +184,14 @@ public class DisplayedMessage   {
     return Objects.equals(this.experimentId, displayedMessage.experimentId) &&
         Objects.equals(this.messageId, displayedMessage.messageId) &&
         Objects.equals(this.richContents, displayedMessage.richContents) &&
+        Objects.equals(this.targetGroupName, displayedMessage.targetGroupName) &&
+        Objects.equals(this.templateContextConfig, displayedMessage.templateContextConfig) &&
         Objects.equals(this.text, displayedMessage.text);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(experimentId, messageId, richContents, text);
+    return Objects.hash(experimentId, messageId, richContents, targetGroupName, templateContextConfig, text);
   }
 
   @Override
@@ -156,6 +202,8 @@ public class DisplayedMessage   {
     sb.append("    experimentId: ").append(toIndentedString(experimentId)).append("\n");
     sb.append("    messageId: ").append(toIndentedString(messageId)).append("\n");
     sb.append("    richContents: ").append(toIndentedString(richContents)).append("\n");
+    sb.append("    targetGroupName: ").append(toIndentedString(targetGroupName)).append("\n");
+    sb.append("    templateContextConfig: ").append(toIndentedString(templateContextConfig)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -165,7 +213,7 @@ public class DisplayedMessage   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }
