@@ -115,6 +115,13 @@ public class Tag   {
     return id;
   }
 
+  public Tag(String tagName) {
+    this.tagName = tagName;
+  }
+
+  public Tag() {
+  }
+
   public void setId(Long id) {
     this.id = id;
   }

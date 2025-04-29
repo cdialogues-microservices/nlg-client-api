@@ -56,6 +56,14 @@ public class Message   {
   @SerializedName("richContents")
   private List<RichContent> richContents = new ArrayList<RichContent>();
 
+  private String link;
+
+  private String callToAction;
+
+  private String campaignType;
+
+  private String channel;
+
   /**
    * Gets or Sets status
    */
@@ -279,6 +287,37 @@ public class Message   {
     this.text = text;
   }
 
+  public String getLink() {
+    return link;
+  }
+
+  public void setLink(String link) {
+    this.link = link;
+  }
+
+  public String getCallToAction() {
+    return callToAction;
+  }
+
+  public void setCallToAction(String callToAction) {
+    this.callToAction = callToAction;
+  }
+
+  public String getCampaignType() {
+    return campaignType;
+  }
+
+  public void setCampaignType(String campaignType) {
+    this.campaignType = campaignType;
+  }
+
+  public String getChannel() {
+    return channel;
+  }
+
+  public void setChannel(String channel) {
+    this.channel = channel;
+  }
 
   @Override
   public boolean equals(Object o) {
