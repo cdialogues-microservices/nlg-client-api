@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * InitialIterationConfig
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-11-04T18:17:47.168+06:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-29T18:38:19.753+06:00")
 public class InitialIterationConfig   {
   @SerializedName("initialPopulationSize")
   private Integer initialPopulationSize = null;
@@ -80,7 +80,7 @@ public class InitialIterationConfig   {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -112,7 +112,7 @@ public class InitialIterationConfig   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

@@ -101,7 +101,7 @@ public class ExperimentclientcontrollerApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -207,7 +207,7 @@ public class ExperimentclientcontrollerApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -314,7 +314,7 @@ public class ExperimentclientcontrollerApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -421,7 +421,7 @@ public class ExperimentclientcontrollerApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -494,7 +494,7 @@ public class ExperimentclientcontrollerApi {
         return call;
     }
     /* Build call for getExperimentsByStatusUsingGET */
-    private com.squareup.okhttp.Call getExperimentsByStatusUsingGETCall(String status, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getExperimentsByStatusUsingGETCall(String status, String channel, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // verify the required parameter 'status' is set
@@ -507,6 +507,8 @@ public class ExperimentclientcontrollerApi {
         String localVarPath = "/api/v1.0/experiments/status".replaceAll("\\{format\\}","json");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (channel != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "channel", channel));
         if (status != null)
         localVarQueryParams.addAll(apiClient.parameterToPairs("", "status", status));
 
@@ -529,7 +531,7 @@ public class ExperimentclientcontrollerApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -546,11 +548,12 @@ public class ExperimentclientcontrollerApi {
      * getExperimentsByStatus
      * 
      * @param status status (required)
+     * @param channel channel (optional)
      * @return List&lt;Experiment&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Experiment> getExperimentsByStatusUsingGET(String status) throws ApiException {
-        ApiResponse<List<Experiment>> resp = getExperimentsByStatusUsingGETWithHttpInfo(status);
+    public List<Experiment> getExperimentsByStatusUsingGET(String status, String channel) throws ApiException {
+        ApiResponse<List<Experiment>> resp = getExperimentsByStatusUsingGETWithHttpInfo(status, channel);
         return resp.getData();
     }
 
@@ -558,11 +561,12 @@ public class ExperimentclientcontrollerApi {
      * getExperimentsByStatus
      * 
      * @param status status (required)
+     * @param channel channel (optional)
      * @return ApiResponse&lt;List&lt;Experiment&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Experiment>> getExperimentsByStatusUsingGETWithHttpInfo(String status) throws ApiException {
-        com.squareup.okhttp.Call call = getExperimentsByStatusUsingGETCall(status, null, null);
+    public ApiResponse<List<Experiment>> getExperimentsByStatusUsingGETWithHttpInfo(String status, String channel) throws ApiException {
+        com.squareup.okhttp.Call call = getExperimentsByStatusUsingGETCall(status, channel, null, null);
         Type localVarReturnType = new TypeToken<List<Experiment>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -571,11 +575,12 @@ public class ExperimentclientcontrollerApi {
      * getExperimentsByStatus (asynchronously)
      * 
      * @param status status (required)
+     * @param channel channel (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getExperimentsByStatusUsingGETAsync(String status, final ApiCallback<List<Experiment>> callback) throws ApiException {
+    public com.squareup.okhttp.Call getExperimentsByStatusUsingGETAsync(String status, String channel, final ApiCallback<List<Experiment>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -596,8 +601,115 @@ public class ExperimentclientcontrollerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getExperimentsByStatusUsingGETCall(status, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getExperimentsByStatusUsingGETCall(status, channel, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<Experiment>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for getNextMessageByExperimentIdForEmailUsingGET */
+    private com.squareup.okhttp.Call getNextMessageByExperimentIdForEmailUsingGETCall(Long experimentId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // verify the required parameter 'experimentId' is set
+        if (experimentId == null) {
+            throw new ApiException("Missing the required parameter 'experimentId' when calling getNextMessageByExperimentIdForEmailUsingGET(Async)");
+        }
+        
+
+        // create path and map variables
+        String localVarPath = "/api/v1.0/experiments/next-message-used/{experimentId}".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "experimentId" + "\\}", apiClient.escapeString(experimentId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "*/*"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {"BearerTokenAuthentication"};
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * getNextMessageByExperimentIdForEmail
+     * 
+     * @param experimentId experimentId (required)
+     * @return DisplayedMessage
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DisplayedMessage getNextMessageByExperimentIdForEmailUsingGET(Long experimentId) throws ApiException {
+        ApiResponse<DisplayedMessage> resp = getNextMessageByExperimentIdForEmailUsingGETWithHttpInfo(experimentId);
+        return resp.getData();
+    }
+
+    /**
+     * getNextMessageByExperimentIdForEmail
+     * 
+     * @param experimentId experimentId (required)
+     * @return ApiResponse&lt;DisplayedMessage&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DisplayedMessage> getNextMessageByExperimentIdForEmailUsingGETWithHttpInfo(Long experimentId) throws ApiException {
+        com.squareup.okhttp.Call call = getNextMessageByExperimentIdForEmailUsingGETCall(experimentId, null, null);
+        Type localVarReturnType = new TypeToken<DisplayedMessage>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * getNextMessageByExperimentIdForEmail (asynchronously)
+     * 
+     * @param experimentId experimentId (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getNextMessageByExperimentIdForEmailUsingGETAsync(Long experimentId, final ApiCallback<DisplayedMessage> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getNextMessageByExperimentIdForEmailUsingGETCall(experimentId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DisplayedMessage>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -636,7 +748,7 @@ public class ExperimentclientcontrollerApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -750,7 +862,7 @@ public class ExperimentclientcontrollerApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))

@@ -29,8 +29,12 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.BrevoConfig;
 import io.swagger.client.model.ExperimentMessage;
+import io.swagger.client.model.FacebookAdConfigDTO;
+import io.swagger.client.model.GoogleAdsConfig;
 import io.swagger.client.model.IterationConfig;
+import io.swagger.client.model.TargetGroupDto;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,8 +42,14 @@ import java.util.List;
 /**
  * Experiment
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-11-04T18:17:47.168+06:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-29T18:38:19.753+06:00")
 public class Experiment   {
+  @SerializedName("brevoConfig")
+  private BrevoConfig brevoConfig = null;
+
+  @SerializedName("campaignId")
+  private Long campaignId = null;
+
   @SerializedName("channel")
   private String channel = null;
 
@@ -58,8 +68,23 @@ public class Experiment   {
   @SerializedName("experimentName")
   private String experimentName = null;
 
+  @SerializedName("facebookAdConfig")
+  private FacebookAdConfigDTO facebookAdConfig = null;
+
+  @SerializedName("facebookPageIds")
+  private List<String> facebookPageIds = new ArrayList<String>();
+
+  @SerializedName("googleAdsConfig")
+  private GoogleAdsConfig googleAdsConfig = null;
+
   @SerializedName("iterationConfiguration")
   private List<IterationConfig> iterationConfiguration = new ArrayList<IterationConfig>();
+
+  @SerializedName("iterationIds")
+  private List<Long> iterationIds = new ArrayList<Long>();
+
+  @SerializedName("messageHistory")
+  private List<ExperimentMessage> messageHistory = new ArrayList<ExperimentMessage>();
 
   @SerializedName("messages")
   private List<ExperimentMessage> messages = new ArrayList<ExperimentMessage>();
@@ -96,7 +121,10 @@ public class Experiment   {
     COMPLETED("COMPLETED"),
     
     @SerializedName("DELETED")
-    DELETED("DELETED");
+    DELETED("DELETED"),
+    
+    @SerializedName("FACEBOOK_TRANSFERRED")
+    FACEBOOK_TRANSFERRED("FACEBOOK_TRANSFERRED");
 
     private String value;
 
@@ -141,6 +169,9 @@ public class Experiment   {
   @SerializedName("strategy")
   private StrategyEnum strategy = null;
 
+  @SerializedName("targetGroup")
+  private TargetGroupDto targetGroup = null;
+
   @SerializedName("targetUsers")
   private Integer targetUsers = null;
 
@@ -155,6 +186,42 @@ public class Experiment   {
 
   @SerializedName("userExpectedTargetGroupSize")
   private Long userExpectedTargetGroupSize = null;
+
+  public Experiment brevoConfig(BrevoConfig brevoConfig) {
+    this.brevoConfig = brevoConfig;
+    return this;
+  }
+
+   /**
+   * Get brevoConfig
+   * @return brevoConfig
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public BrevoConfig getBrevoConfig() {
+    return brevoConfig;
+  }
+
+  public void setBrevoConfig(BrevoConfig brevoConfig) {
+    this.brevoConfig = brevoConfig;
+  }
+
+  public Experiment campaignId(Long campaignId) {
+    this.campaignId = campaignId;
+    return this;
+  }
+
+   /**
+   * Get campaignId
+   * @return campaignId
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Long getCampaignId() {
+    return campaignId;
+  }
+
+  public void setCampaignId(Long campaignId) {
+    this.campaignId = campaignId;
+  }
 
   public Experiment channel(String channel) {
     this.channel = channel;
@@ -264,6 +331,65 @@ public class Experiment   {
     this.experimentName = experimentName;
   }
 
+  public Experiment facebookAdConfig(FacebookAdConfigDTO facebookAdConfig) {
+    this.facebookAdConfig = facebookAdConfig;
+    return this;
+  }
+
+   /**
+   * Get facebookAdConfig
+   * @return facebookAdConfig
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public FacebookAdConfigDTO getFacebookAdConfig() {
+    return facebookAdConfig;
+  }
+
+  public void setFacebookAdConfig(FacebookAdConfigDTO facebookAdConfig) {
+    this.facebookAdConfig = facebookAdConfig;
+  }
+
+  public Experiment facebookPageIds(List<String> facebookPageIds) {
+    this.facebookPageIds = facebookPageIds;
+    return this;
+  }
+
+  public Experiment addFacebookPageIdsItem(String facebookPageIdsItem) {
+    this.facebookPageIds.add(facebookPageIdsItem);
+    return this;
+  }
+
+   /**
+   * Get facebookPageIds
+   * @return facebookPageIds
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public List<String> getFacebookPageIds() {
+    return facebookPageIds;
+  }
+
+  public void setFacebookPageIds(List<String> facebookPageIds) {
+    this.facebookPageIds = facebookPageIds;
+  }
+
+  public Experiment googleAdsConfig(GoogleAdsConfig googleAdsConfig) {
+    this.googleAdsConfig = googleAdsConfig;
+    return this;
+  }
+
+   /**
+   * Get googleAdsConfig
+   * @return googleAdsConfig
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public GoogleAdsConfig getGoogleAdsConfig() {
+    return googleAdsConfig;
+  }
+
+  public void setGoogleAdsConfig(GoogleAdsConfig googleAdsConfig) {
+    this.googleAdsConfig = googleAdsConfig;
+  }
+
   public Experiment iterationConfiguration(List<IterationConfig> iterationConfiguration) {
     this.iterationConfiguration = iterationConfiguration;
     return this;
@@ -285,6 +411,52 @@ public class Experiment   {
 
   public void setIterationConfiguration(List<IterationConfig> iterationConfiguration) {
     this.iterationConfiguration = iterationConfiguration;
+  }
+
+  public Experiment iterationIds(List<Long> iterationIds) {
+    this.iterationIds = iterationIds;
+    return this;
+  }
+
+  public Experiment addIterationIdsItem(Long iterationIdsItem) {
+    this.iterationIds.add(iterationIdsItem);
+    return this;
+  }
+
+   /**
+   * Get iterationIds
+   * @return iterationIds
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public List<Long> getIterationIds() {
+    return iterationIds;
+  }
+
+  public void setIterationIds(List<Long> iterationIds) {
+    this.iterationIds = iterationIds;
+  }
+
+  public Experiment messageHistory(List<ExperimentMessage> messageHistory) {
+    this.messageHistory = messageHistory;
+    return this;
+  }
+
+  public Experiment addMessageHistoryItem(ExperimentMessage messageHistoryItem) {
+    this.messageHistory.add(messageHistoryItem);
+    return this;
+  }
+
+   /**
+   * Get messageHistory
+   * @return messageHistory
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public List<ExperimentMessage> getMessageHistory() {
+    return messageHistory;
+  }
+
+  public void setMessageHistory(List<ExperimentMessage> messageHistory) {
+    this.messageHistory = messageHistory;
   }
 
   public Experiment messages(List<ExperimentMessage> messages) {
@@ -418,6 +590,24 @@ public class Experiment   {
     this.strategy = strategy;
   }
 
+  public Experiment targetGroup(TargetGroupDto targetGroup) {
+    this.targetGroup = targetGroup;
+    return this;
+  }
+
+   /**
+   * Get targetGroup
+   * @return targetGroup
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public TargetGroupDto getTargetGroup() {
+    return targetGroup;
+  }
+
+  public void setTargetGroup(TargetGroupDto targetGroup) {
+    this.targetGroup = targetGroup;
+  }
+
   public Experiment targetUsers(Integer targetUsers) {
     this.targetUsers = targetUsers;
     return this;
@@ -510,7 +700,7 @@ public class Experiment   {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -518,13 +708,20 @@ public class Experiment   {
       return false;
     }
     Experiment experiment = (Experiment) o;
-    return Objects.equals(this.channel, experiment.channel) &&
+    return Objects.equals(this.brevoConfig, experiment.brevoConfig) &&
+        Objects.equals(this.campaignId, experiment.campaignId) &&
+        Objects.equals(this.channel, experiment.channel) &&
         Objects.equals(this.customAttributes, experiment.customAttributes) &&
         Objects.equals(this.endDate, experiment.endDate) &&
         Objects.equals(this.endDateUi, experiment.endDateUi) &&
         Objects.equals(this.experimentId, experiment.experimentId) &&
         Objects.equals(this.experimentName, experiment.experimentName) &&
+        Objects.equals(this.facebookAdConfig, experiment.facebookAdConfig) &&
+        Objects.equals(this.facebookPageIds, experiment.facebookPageIds) &&
+        Objects.equals(this.googleAdsConfig, experiment.googleAdsConfig) &&
         Objects.equals(this.iterationConfiguration, experiment.iterationConfiguration) &&
+        Objects.equals(this.iterationIds, experiment.iterationIds) &&
+        Objects.equals(this.messageHistory, experiment.messageHistory) &&
         Objects.equals(this.messages, experiment.messages) &&
         Objects.equals(this.segmentId, experiment.segmentId) &&
         Objects.equals(this.segmentName, experiment.segmentName) &&
@@ -532,6 +729,7 @@ public class Experiment   {
         Objects.equals(this.startDateUi, experiment.startDateUi) &&
         Objects.equals(this.status, experiment.status) &&
         Objects.equals(this.strategy, experiment.strategy) &&
+        Objects.equals(this.targetGroup, experiment.targetGroup) &&
         Objects.equals(this.targetUsers, experiment.targetUsers) &&
         Objects.equals(this.teamOwnership, experiment.teamOwnership) &&
         Objects.equals(this.timezoneUi, experiment.timezoneUi) &&
@@ -541,7 +739,7 @@ public class Experiment   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(channel, customAttributes, endDate, endDateUi, experimentId, experimentName, iterationConfiguration, messages, segmentId, segmentName, startDate, startDateUi, status, strategy, targetUsers, teamOwnership, timezoneUi, totalRequests, userExpectedTargetGroupSize);
+    return Objects.hash(brevoConfig, campaignId, channel, customAttributes, endDate, endDateUi, experimentId, experimentName, facebookAdConfig, facebookPageIds, googleAdsConfig, iterationConfiguration, iterationIds, messageHistory, messages, segmentId, segmentName, startDate, startDateUi, status, strategy, targetGroup, targetUsers, teamOwnership, timezoneUi, totalRequests, userExpectedTargetGroupSize);
   }
 
   @Override
@@ -549,13 +747,20 @@ public class Experiment   {
     StringBuilder sb = new StringBuilder();
     sb.append("class Experiment {\n");
     
+    sb.append("    brevoConfig: ").append(toIndentedString(brevoConfig)).append("\n");
+    sb.append("    campaignId: ").append(toIndentedString(campaignId)).append("\n");
     sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
     sb.append("    customAttributes: ").append(toIndentedString(customAttributes)).append("\n");
     sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
     sb.append("    endDateUi: ").append(toIndentedString(endDateUi)).append("\n");
     sb.append("    experimentId: ").append(toIndentedString(experimentId)).append("\n");
     sb.append("    experimentName: ").append(toIndentedString(experimentName)).append("\n");
+    sb.append("    facebookAdConfig: ").append(toIndentedString(facebookAdConfig)).append("\n");
+    sb.append("    facebookPageIds: ").append(toIndentedString(facebookPageIds)).append("\n");
+    sb.append("    googleAdsConfig: ").append(toIndentedString(googleAdsConfig)).append("\n");
     sb.append("    iterationConfiguration: ").append(toIndentedString(iterationConfiguration)).append("\n");
+    sb.append("    iterationIds: ").append(toIndentedString(iterationIds)).append("\n");
+    sb.append("    messageHistory: ").append(toIndentedString(messageHistory)).append("\n");
     sb.append("    messages: ").append(toIndentedString(messages)).append("\n");
     sb.append("    segmentId: ").append(toIndentedString(segmentId)).append("\n");
     sb.append("    segmentName: ").append(toIndentedString(segmentName)).append("\n");
@@ -563,6 +768,7 @@ public class Experiment   {
     sb.append("    startDateUi: ").append(toIndentedString(startDateUi)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    strategy: ").append(toIndentedString(strategy)).append("\n");
+    sb.append("    targetGroup: ").append(toIndentedString(targetGroup)).append("\n");
     sb.append("    targetUsers: ").append(toIndentedString(targetUsers)).append("\n");
     sb.append("    teamOwnership: ").append(toIndentedString(teamOwnership)).append("\n");
     sb.append("    timezoneUi: ").append(toIndentedString(timezoneUi)).append("\n");
@@ -576,7 +782,7 @@ public class Experiment   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

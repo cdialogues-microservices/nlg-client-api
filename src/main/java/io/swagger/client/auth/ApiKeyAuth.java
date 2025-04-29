@@ -27,10 +27,10 @@ package io.swagger.client.auth;
 
 import io.swagger.client.Pair;
 
-import java.util.List;
 import java.util.Map;
+import java.util.List;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-11-04T18:17:47.168+06:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-29T18:38:19.753+06:00")
 public class ApiKeyAuth implements Authentication {
   private final String location;
   private final String paramName;

@@ -124,7 +124,7 @@ public class ApiClient {
      */
     public static final String LENIENT_DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
 
-    private String basePath = "https://nlg-api-dev.cdialogues.com";
+    private String basePath = "https://localhost:8880/";
     private boolean lenientOnJson = false;
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
@@ -173,11 +173,7 @@ public class ApiClient {
 
         // Setup authentications (key: authentication name, value: authentication).
         authentications = new HashMap<String, Authentication>();
-
-        OAuth oauth = new OAuth();
-
-        authentications.put("BearerTokenAuthentication", oauth);
-
+        // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
 
@@ -193,7 +189,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://nlg-api-dev.cdialogues.com/
+     * @param basePath Base path of the URL (e.g https://localhost:8880/
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {

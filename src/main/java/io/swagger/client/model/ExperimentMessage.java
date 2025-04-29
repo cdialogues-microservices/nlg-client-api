@@ -39,8 +39,14 @@ import java.util.List;
 /**
  * ExperimentMessage
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-11-04T18:17:47.168+06:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-29T18:38:19.753+06:00")
 public class ExperimentMessage   {
+  @SerializedName("callToAction")
+  private String callToAction = null;
+
+  @SerializedName("channel")
+  private String channel = null;
+
   @SerializedName("content")
   private String content = null;
 
@@ -52,6 +58,9 @@ public class ExperimentMessage   {
 
   @SerializedName("impressions")
   private Long impressions = null;
+
+  @SerializedName("link")
+  private String link = null;
 
   @SerializedName("messageId")
   private Long messageId = null;
@@ -73,6 +82,42 @@ public class ExperimentMessage   {
 
   @SerializedName("tags")
   private List<Tag> tags = new ArrayList<Tag>();
+
+  public ExperimentMessage callToAction(String callToAction) {
+    this.callToAction = callToAction;
+    return this;
+  }
+
+   /**
+   * Get callToAction
+   * @return callToAction
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getCallToAction() {
+    return callToAction;
+  }
+
+  public void setCallToAction(String callToAction) {
+    this.callToAction = callToAction;
+  }
+
+  public ExperimentMessage channel(String channel) {
+    this.channel = channel;
+    return this;
+  }
+
+   /**
+   * Get channel
+   * @return channel
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getChannel() {
+    return channel;
+  }
+
+  public void setChannel(String channel) {
+    this.channel = channel;
+  }
 
   public ExperimentMessage content(String content) {
     this.content = content;
@@ -144,6 +189,24 @@ public class ExperimentMessage   {
 
   public void setImpressions(Long impressions) {
     this.impressions = impressions;
+  }
+
+  public ExperimentMessage link(String link) {
+    this.link = link;
+    return this;
+  }
+
+   /**
+   * Get link
+   * @return link
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getLink() {
+    return link;
+  }
+
+  public void setLink(String link) {
+    this.link = link;
   }
 
   public ExperimentMessage messageId(Long messageId) {
@@ -284,7 +347,7 @@ public class ExperimentMessage   {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -292,10 +355,13 @@ public class ExperimentMessage   {
       return false;
     }
     ExperimentMessage experimentMessage = (ExperimentMessage) o;
-    return Objects.equals(this.content, experimentMessage.content) &&
+    return Objects.equals(this.callToAction, experimentMessage.callToAction) &&
+        Objects.equals(this.channel, experimentMessage.channel) &&
+        Objects.equals(this.content, experimentMessage.content) &&
         Objects.equals(this.conversions, experimentMessage.conversions) &&
         Objects.equals(this.experimentId, experimentMessage.experimentId) &&
         Objects.equals(this.impressions, experimentMessage.impressions) &&
+        Objects.equals(this.link, experimentMessage.link) &&
         Objects.equals(this.messageId, experimentMessage.messageId) &&
         Objects.equals(this.parentId, experimentMessage.parentId) &&
         Objects.equals(this.percentage, experimentMessage.percentage) &&
@@ -307,7 +373,7 @@ public class ExperimentMessage   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, conversions, experimentId, impressions, messageId, parentId, percentage, reach, richContents, score, tags);
+    return Objects.hash(callToAction, channel, content, conversions, experimentId, impressions, link, messageId, parentId, percentage, reach, richContents, score, tags);
   }
 
   @Override
@@ -315,10 +381,13 @@ public class ExperimentMessage   {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExperimentMessage {\n");
     
+    sb.append("    callToAction: ").append(toIndentedString(callToAction)).append("\n");
+    sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    conversions: ").append(toIndentedString(conversions)).append("\n");
     sb.append("    experimentId: ").append(toIndentedString(experimentId)).append("\n");
     sb.append("    impressions: ").append(toIndentedString(impressions)).append("\n");
+    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    messageId: ").append(toIndentedString(messageId)).append("\n");
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    percentage: ").append(toIndentedString(percentage)).append("\n");
@@ -334,7 +403,7 @@ public class ExperimentMessage   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

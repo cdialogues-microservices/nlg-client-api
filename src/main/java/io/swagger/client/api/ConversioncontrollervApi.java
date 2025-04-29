@@ -25,9 +25,21 @@
 
 package io.swagger.client.api;
 
-import io.swagger.client.*;
+import io.swagger.client.ApiCallback;
+import io.swagger.client.ApiClient;
+import io.swagger.client.ApiException;
+import io.swagger.client.ApiResponse;
+import io.swagger.client.Configuration;
+import io.swagger.client.Pair;
+import io.swagger.client.ProgressRequestBody;
+import io.swagger.client.ProgressResponseBody;
+
+import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
+
+
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -52,13 +64,13 @@ public class ConversioncontrollervApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for postConversionUsingPOST */
-    private com.squareup.okhttp.Call postConversionUsingPOSTCall(Long experimentId, String channel, String messageContent, Long messageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for postConversionUsingPOST1 */
+    private com.squareup.okhttp.Call postConversionUsingPOST1Call(Long experimentId, String channel, String messageContent, Long messageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = messageContent;
         
         // verify the required parameter 'experimentId' is set
         if (experimentId == null) {
-            throw new ApiException("Missing the required parameter 'experimentId' when calling postConversionUsingPOST(Async)");
+            throw new ApiException("Missing the required parameter 'experimentId' when calling postConversionUsingPOST1(Async)");
         }
         
 
@@ -91,7 +103,7 @@ public class ConversioncontrollervApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -113,8 +125,8 @@ public class ConversioncontrollervApi {
      * @param messageId MessageId (optional, default to 10)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void postConversionUsingPOST(Long experimentId, String channel, String messageContent, Long messageId) throws ApiException {
-        postConversionUsingPOSTWithHttpInfo(experimentId, channel, messageContent, messageId);
+    public void postConversionUsingPOST1(Long experimentId, String channel, String messageContent, Long messageId) throws ApiException {
+        postConversionUsingPOST1WithHttpInfo(experimentId, channel, messageContent, messageId);
     }
 
     /**
@@ -127,8 +139,8 @@ public class ConversioncontrollervApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> postConversionUsingPOSTWithHttpInfo(Long experimentId, String channel, String messageContent, Long messageId) throws ApiException {
-        com.squareup.okhttp.Call call = postConversionUsingPOSTCall(experimentId, channel, messageContent, messageId, null, null);
+    public ApiResponse<Void> postConversionUsingPOST1WithHttpInfo(Long experimentId, String channel, String messageContent, Long messageId) throws ApiException {
+        com.squareup.okhttp.Call call = postConversionUsingPOST1Call(experimentId, channel, messageContent, messageId, null, null);
         return apiClient.execute(call);
     }
 
@@ -143,7 +155,7 @@ public class ConversioncontrollervApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call postConversionUsingPOSTAsync(Long experimentId, String channel, String messageContent, Long messageId, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call postConversionUsingPOST1Async(Long experimentId, String channel, String messageContent, Long messageId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -164,17 +176,17 @@ public class ConversioncontrollervApi {
             };
         }
 
-        com.squareup.okhttp.Call call = postConversionUsingPOSTCall(experimentId, channel, messageContent, messageId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = postConversionUsingPOST1Call(experimentId, channel, messageContent, messageId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
-    /* Build call for postReachUsingGET */
-    private com.squareup.okhttp.Call postReachUsingGETCall(Long experimentId, String channel, Long messageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /* Build call for postReachUsingGET1 */
+    private com.squareup.okhttp.Call postReachUsingGET1Call(Long experimentId, String channel, Long messageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // verify the required parameter 'experimentId' is set
         if (experimentId == null) {
-            throw new ApiException("Missing the required parameter 'experimentId' when calling postReachUsingGET(Async)");
+            throw new ApiException("Missing the required parameter 'experimentId' when calling postReachUsingGET1(Async)");
         }
         
 
@@ -207,7 +219,7 @@ public class ConversioncontrollervApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -228,8 +240,8 @@ public class ConversioncontrollervApi {
      * @param messageId MessageId (optional, default to 10)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void postReachUsingGET(Long experimentId, String channel, Long messageId) throws ApiException {
-        postReachUsingGETWithHttpInfo(experimentId, channel, messageId);
+    public void postReachUsingGET1(Long experimentId, String channel, Long messageId) throws ApiException {
+        postReachUsingGET1WithHttpInfo(experimentId, channel, messageId);
     }
 
     /**
@@ -241,8 +253,8 @@ public class ConversioncontrollervApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> postReachUsingGETWithHttpInfo(Long experimentId, String channel, Long messageId) throws ApiException {
-        com.squareup.okhttp.Call call = postReachUsingGETCall(experimentId, channel, messageId, null, null);
+    public ApiResponse<Void> postReachUsingGET1WithHttpInfo(Long experimentId, String channel, Long messageId) throws ApiException {
+        com.squareup.okhttp.Call call = postReachUsingGET1Call(experimentId, channel, messageId, null, null);
         return apiClient.execute(call);
     }
 
@@ -256,7 +268,7 @@ public class ConversioncontrollervApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call postReachUsingGETAsync(Long experimentId, String channel, Long messageId, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call postReachUsingGET1Async(Long experimentId, String channel, Long messageId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -277,7 +289,7 @@ public class ConversioncontrollervApi {
             };
         }
 
-        com.squareup.okhttp.Call call = postReachUsingGETCall(experimentId, channel, messageId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = postReachUsingGET1Call(experimentId, channel, messageId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
