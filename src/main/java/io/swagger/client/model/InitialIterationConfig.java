@@ -34,7 +34,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * InitialIterationConfig
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-29T18:38:19.753+06:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-29T19:02:02.404+06:00")
 public class InitialIterationConfig   {
   @SerializedName("initialPopulationSize")
   private Integer initialPopulationSize = null;
