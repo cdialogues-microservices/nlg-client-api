@@ -124,7 +124,7 @@ public class ApiClient {
      */
     public static final String LENIENT_DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
 
-    private String basePath = "https://localhost:8880/";
+    private String basePath = "http://localhost:8880/";
     private boolean lenientOnJson = false;
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
@@ -173,7 +173,11 @@ public class ApiClient {
 
         // Setup authentications (key: authentication name, value: authentication).
         authentications = new HashMap<String, Authentication>();
-        // Prevent the authentications from being modified.
+
+        OAuth oauth = new OAuth();
+
+        authentications.put("BearerTokenAuthentication", oauth);
+
         authentications = Collections.unmodifiableMap(authentications);
     }
 
