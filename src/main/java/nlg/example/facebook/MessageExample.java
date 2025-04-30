@@ -1,5 +1,8 @@
 package nlg.example.facebook;
 
+import io.swagger.client.ApiClient;
+import io.swagger.client.ApiException;
+import io.swagger.client.api.MessageclientcontrollerApi;
 import io.swagger.client.model.Message;
 import io.swagger.client.model.RichContent;
 import io.swagger.client.model.Tag;
@@ -8,6 +11,42 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MessageExample {
+
+    public Message postCreateMessagesRich(String token) throws ApiException {
+        MessageclientcontrollerApi apiInstance = new MessageclientcontrollerApi();
+
+        ApiClient apiClient = apiInstance.getApiClient();
+
+        apiClient.setAccessToken(token);
+        try {
+            Message message = buildFacebookMessage();
+            Message createdMessage = apiInstance.createMessageRichUsingPOST(message);
+            System.out.println("Result postCreateMessagesRich: " + createdMessage);
+            return createdMessage;
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MessageclientcontrollerApi#createMessageUsingPOST");
+            System.err.println("Error: " + e.getResponseBody());
+            throw e;
+        }
+    }
+
+    public List<Message> postCreateMessageRichVariations(String token, Long messageId) throws ApiException {
+        MessageclientcontrollerApi apiInstance = new MessageclientcontrollerApi();
+
+        ApiClient apiClient = apiInstance.getApiClient();
+
+        apiClient.setAccessToken(token);
+        try {
+            List<Long> messagesIds = List.of(messageId);
+            List<Message> messageVariations = apiInstance.createRichContentAlternativeMessagesUsingPOST(messagesIds, false);
+            System.out.println("Result postCreateMessageRichVariations: " + messageVariations);
+            return messageVariations;
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MessageclientcontrollerApi#createMessageUsingPOST");
+            System.err.println("Error: " + e.getResponseBody());
+            throw e;
+        }
+    }
 
 
     private Message buildFacebookMessage() {
