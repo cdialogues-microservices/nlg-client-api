@@ -141,7 +141,7 @@ public class ExperimentExample {
         apiClient.setAccessToken(token);
         try {
             String status = "DRAFT";
-            List<Experiment> experiments = apiInstance.getExperimentsByStatusUsingGET(status);
+            List<Experiment> experiments = apiInstance.getExperimentsByStatusUsingGET(status, "channel");
             System.out.println("Result getExperimentsByStatus: " + experiments);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExperimentclientcontrollerApi#getExperimentsByStatusUsingGET");
