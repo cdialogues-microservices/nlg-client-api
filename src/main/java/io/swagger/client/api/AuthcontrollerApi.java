@@ -109,7 +109,7 @@ public class AuthcontrollerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {"BearerTokenAuthentication"};
+        String[] localVarAuthNames = new String[] {};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 

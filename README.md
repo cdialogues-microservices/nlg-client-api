@@ -341,9 +341,203 @@ Example:
 ### Creating Facebook Campaign
 Provided example for creating Facebook Campaign 
 package: nlg/example/facebook
+## Google Campaign Creation
+
+Create and Manage Google Ads Campaigns:
+This module handles the full flow of creating Google Ads campaigns (Search, Display, and YouTube) by authenticating with the NLG system, preparing message content, and submitting campaign requests.
+
+**URL**: `/api/campaign/new`
+
+```java
+public static void main(String[] args) {
+    try {
+        // Step 1: Authenticate using provided credentials
+        AuthExample.TokenPair authenticate = AuthExample.authenticate("admin@cdialogues.com", "#!6!Kh879");
+
+        // Step 2: Create an instance of CampaignExample
+        CampaignExample campaignExample = new CampaignExample();
+
+        // Step 3: Create a Google Ads Search campaign
+        CampaignResponseDto googleAdSearchCampaign = campaignExample.createGoogleSearchCampaign(authenticate.getAccessToken());
+        System.out.println("Campaign for Google Ads Search successfully created: " + googleAdSearchCampaign);
+
+        // Step 4: Create a Google Ads Display campaign
+        CampaignResponseDto googleAdDisplayCampaign = campaignExample.createGoogleDisplayCampaign(authenticate.getAccessToken());
+        System.out.println("Campaign for Google Ads Display successfully created: " + googleAdDisplayCampaign);
+
+        // Step 5: Create a YouTube campaign
+        CampaignResponseDto googleAdYoutubeCampaign = campaignExample.createGoogleYoutubeCampaign(authenticate.getAccessToken());
+        System.out.println("Campaign for Google Ads YouTube successfully created: " + googleAdYoutubeCampaign);
+
+    } catch (AuthExample.AuthenticationException | ApiException e) {
+        throw new RuntimeException("An error occurred while creating campaigns", e);
+    }
+}
+
+```
+### Campaign Creation Functions
+
+#### createGoogleSearchCampaign(String token)
+Creates a Google Search campaign by:
 
 UploadImageExample - uploads image which will be used in MessageExample as promo_visual
 MessageExample - creates message for Facebook
 CampaignExample - provided how to create Facebook Campaign 
 FacebookFlowExampleMain - runs UploadImageExample, MessageExample, CampaignExample shows full flow of creation Facebook Campaign
+    Setting the access token.
 
+    Creating a rich initial message for search.
+
+    Generating rich content message variations.
+
+    Building and sending the campaign request.
+
+#### createGoogleDisplayCampaign(String token)
+
+Creates a Google Display campaign by:
+
+    Preparing a Display-specific message.
+
+    Generating content variations.
+
+    Sending a campaign creation request.
+
+#### createGoogleYoutubeCampaign(String token)
+
+Creates a YouTube Demand Gen campaign by:
+
+    Preparing a YouTube-specific message.
+
+    Creating rich message variations.
+
+    Submitting a campaign creation request with Demand Gen configuration.
+
+### Campaign Request Builder
+#### buildCampaignRequest(...)
+
+Generates a standardized CampaignRequestV2 object used across all campaign types. It:
+
+    Maps messages to experiment messages.
+
+    Configures campaign metadata including start/end date, timezone, type, strategy, and budget.
+
+    Sets up the experiment and wraps it into a CampaignRequestV2.
+
+Example classes
+
+[MessageExample class](./src/main/java/nlg/example/google/MessageExample.java)
+[CampaignExample class](./src/main/java/nlg/example/google/CampaignExample.java)
+[GoogleFlowExampleMain class](./src/main/java/nlg/example/google/GoogleFlowExampleMain.java)
+
+
+# Reporting API 
+
+This guide covers how to use the reporting endpoints of the NLG API to extract meaningful analytics based on time, experiment, and content segments.
+
+## Reporting Endpoints
+
+### Report by Time Dimension
+
+Break down performance across time-based metrics.
+
+**URL:** `/api/v1.0/report/filter`
+
+Example:
+
+```java
+ReportcontrollerApi apiInstance = new ReportcontrollerApi();
+ApiClient apiClient = apiInstance.getApiClient();
+apiClient.setAccessToken("put your token here");
+
+ReportExample reportExample = new ReportExample();
+reportExample.reportsByType("put your token here");
+```
+This method retrieves:
+
+    DAY_OF_WEEK
+    ALIGNED_WEEK_OF_YEAR
+    MONTH_OF_YEAR
+    YEAR
+
+### Top Messages by Experiment ID
+
+Retrieve the top N performing messages for a specific experiment.
+
+**URL**: `/api/v1.0/report`
+
+Example:
+
+```java
+ReportExample reportExample = new ReportExample();
+Long experimentId = 123L; // Replace with your actual experiment ID
+reportExample.topNMessageByExperimentId("put your token here", experimentId);
+
+```
+
+### All Messages by Experiment ID
+
+Retrieve all messages used in a specific experiment, not just the top performers.
+
+**URL**: `/api/v1.0/report/full`
+
+Example:
+
+```java
+ReportExample reportExample = new ReportExample();
+Long experimentId = 123L;
+reportExample.getAllMessageByExperimentId("put your token here", experimentId);
+
+```
+
+### Top Segments (Tags)
+
+Identify which tags (segments) are most frequently or effectively used.
+
+**URL**: `/api/v1.0/report/top-segment`
+
+Example:
+```java
+ReportExample reportExample = new ReportExample();
+reportExample.topSegments("put your token here");
+
+```
+
+#### Customize Time Range
+
+Each method using ReportRequest supports startDate and endDate. You can modify the time window as follows:
+
+```java
+DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+String startDate = LocalDateTime.now().minusDays(7).format(formatter); // 7 days ago
+String endDate = LocalDateTime.now().format(formatter); // now
+
+ReportRequest request = new ReportRequest();
+request.setStartDate(startDate);
+request.setEndDate(endDate);
+request.setType(ReportRequest.TypeEnum.SEGMENT);
+request.setLimit(10);
+
+```
+
+### Full Example
+```java
+String token = AuthExample.authenticate("api-demo", "api-demo").getAccessToken();
+
+ReportExample reportExample = new ReportExample();
+
+// 1. Time-based reports (day/week/month/year)
+reportExample.reportsByType(token);
+
+// 2. Top content segments/tags
+reportExample.topSegments(token);
+
+// 3. Messages linked to a specific experiment
+Long experimentId = 123L;
+reportExample.getAllMessageByExperimentId(token, experimentId);
+reportExample.topNMessageByExperimentId(token, experimentId);
+```
+
+Example classes
+
+[ReportExample class](./src/main/java/nlg/example/report/ReportExample.java)
+[ReportFlowExampleMain class](./src/main/java/nlg/example/report/ReportFlowExampleMain.java)
