@@ -6,7 +6,9 @@ import io.swagger.client.api.CampaigncontrollerApi;
 import io.swagger.client.model.*;
 import nlg.example.util.MessageMapper;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class CampaignExample {
@@ -19,17 +21,22 @@ public class CampaignExample {
         Message brevoInitialMessage = messageExample.postCreateMessagesRich(accessToken);
         List<Message> brevoMessageVariations = messageExample.postCreateMessageRichVariations(accessToken, brevoInitialMessage.getMessageId());
 
-        CampaignRequestV2 brevoCampaignRequest = buildCampaignRequest(brevoMessageVariations);
+        TargetGroupExample targetGroupExample = new TargetGroupExample();
+        TargetGroupDto targetGroup = targetGroupExample.createTargetGroup(accessToken);
+
+        CampaignRequestV2 brevoCampaignRequest = buildCampaignRequest(brevoMessageVariations, targetGroup);
 
         return apiInstance.createNewUsingPOST(brevoCampaignRequest);
     }
 
-    private CampaignRequestV2 buildCampaignRequest(List<Message> messages){
+    private CampaignRequestV2 buildCampaignRequest(List<Message> messages, TargetGroupDto targetGroup) {
 
         List<ExperimentMessage> experimentMessages = messages.stream().map(MessageMapper::mapToExperimentMessage).collect(Collectors.toList());
 
         TargetGroupMessage targetGroupMessage = new TargetGroupMessage();
         targetGroupMessage.setMessages(experimentMessages);
+        targetGroupMessage.setTargetGroupId(targetGroup.getId());
+        targetGroupMessage.setTargetGroupName(targetGroup.getName());
 
         BrevoConfig brevoConfig = new BrevoConfig();
         brevoConfig.setSenderEmail("info@cslash.i");
@@ -45,6 +52,9 @@ public class CampaignExample {
         experiment.setChannel("EMAIL");
         experiment.setStrategy(Experiment.StrategyEnum.BEST_MESSAGES_ROUNDS_GA);
         experiment.setStatus(Experiment.StatusEnum.DRAFT);
+        experiment.setTargetGroup(targetGroup);
+        experiment.setCustomAttributes(buildCustomAttributes());
+
 
         CampaignDto campaign = new CampaignDto();
         campaign.setName("Brevo Campaign");
@@ -55,4 +65,16 @@ public class CampaignExample {
         request.setTargetGroupMessages(List.of(targetGroupMessage));
         return request;
     }
+
+    private Object buildCustomAttributes() {
+        Map<String, Object> customAttributes = new HashMap<>();
+        customAttributes.put("sample", 1);
+        customAttributes.put("iterationResponses", 2);
+        customAttributes.put("iterationDuration", 3600000);
+        customAttributes.put("isBothConditions", false);
+
+        return customAttributes;
+    }
+
+
 }
