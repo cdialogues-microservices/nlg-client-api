@@ -18,8 +18,14 @@ public class MessageExample {
         ApiClient apiClient = apiInstance.getApiClient();
 
         apiClient.setAccessToken(token);
+
         try {
-            Message message = buildFacebookMessage();
+
+            UploadImageExample uploadImageExample = new UploadImageExample();
+
+            Long richMediaId = uploadImageExample.uploadImage(token, "nlg/example/facebook/resources/cslash-logo.jpeg", null, "FACEBOOK_ADS");
+
+            Message message = buildFacebookMessage(richMediaId);
             Message createdMessage = apiInstance.createMessageRichUsingPOST(message);
             System.out.println("Result postCreateMessagesRich: " + createdMessage);
             return createdMessage;
@@ -49,7 +55,7 @@ public class MessageExample {
     }
 
 
-    private Message buildFacebookMessage() {
+    private Message buildFacebookMessage(Long richMediaId) {
         Message message = new Message();
 
         message.setLink("https://cslash.io");
@@ -79,9 +85,7 @@ public class MessageExample {
         richContents.add(createRichContent(3, "description text",
                 "Please click on this link for further information."));
 
-        richContents.add(createRichContentWithId(4, "promo visual", 406647L));
-        richContents.add(createRichContentWithId(4, "promo visual", 406646L));
-        richContents.add(createRichContentWithId(4, "promo visual", 406645L));
+        richContents.add(createRichContentWithId(4, "promo visual", richMediaId));
 
         message.setRichContents(richContents);
         return message;
