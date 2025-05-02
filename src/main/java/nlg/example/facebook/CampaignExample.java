@@ -11,13 +11,17 @@ import java.util.stream.Collectors;
 
 public class CampaignExample {
 
+    //we can improve and add here
     public CampaignResponseDto createFacebookCampaign(String token) throws ApiException {
         CampaigncontrollerApi apiInstance = new CampaigncontrollerApi();
         ApiClient apiClient = apiInstance.getApiClient();
         apiClient.setAccessToken(token);
+        //create facebook message
         MessageExample messageExample = new MessageExample();
         Message facebookInitialMessage = messageExample.postCreateMessagesRich(token);
+        //generating variations from facebook initial message
         List<Message> facebookMessageVariations = messageExample.postCreateMessageRichVariations(token, facebookInitialMessage.getMessageId());
+        //creating campaign with created message variations
         CampaignRequestV2 facebookCampaignRequest = buildCampaignRequest(facebookMessageVariations);
         return apiInstance.createNewUsingPOST(facebookCampaignRequest);
     }

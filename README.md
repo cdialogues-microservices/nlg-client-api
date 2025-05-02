@@ -338,6 +338,9 @@ Example:
         }
 ```        
 
+### Creating Facebook Campaign
+Provided example for creating Facebook Campaign 
+package: nlg/example/facebook
 ## Google Campaign Creation
 
 Create and Manage Google Ads Campaigns:
@@ -377,6 +380,10 @@ public static void main(String[] args) {
 #### createGoogleSearchCampaign(String token)
 Creates a Google Search campaign by:
 
+UploadImageExample - uploads image which will be used in MessageExample as promo_visual
+MessageExample - creates message for Facebook
+CampaignExample - provided how to create Facebook Campaign 
+FacebookFlowExampleMain - runs UploadImageExample, MessageExample, CampaignExample shows full flow of creation Facebook Campaign
     Setting the access token.
 
     Creating a rich initial message for search.

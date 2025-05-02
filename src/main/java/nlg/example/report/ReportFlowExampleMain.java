@@ -11,7 +11,7 @@ public class ReportFlowExampleMain {
     public static void main(String[] args) {
         try {
             // Step 1: Authenticate using provided credentials
-            AuthExample.TokenPair authenticate = AuthExample.authenticate("admin@cdialogues.com", "#!6!Kh879");
+            AuthExample.TokenPair authenticate = AuthExample.authenticate("api-demo@clash.io", "api-demo");
             String accessToken = authenticate.getAccessToken();
 
             // Step 2: Initialize helper classes
@@ -31,8 +31,8 @@ public class ReportFlowExampleMain {
 
 //             Step 5: Run message-level reports based on experimentId
             if (experimentId != null) {
-                reportExample.getAllMessageByExperimentId(accessToken, 568L);
-                reportExample.topNMessageByExperimentId(accessToken, 568L);
+                reportExample.getAllMessageByExperimentId(accessToken, experimentId);
+                reportExample.topNMessageByExperimentId(accessToken, experimentId);
             } else {
                 System.err.println("No experiment ID found in the campaign response.");
             }

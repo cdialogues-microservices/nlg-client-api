@@ -9,7 +9,7 @@ public class GoogleFlowExampleMain {
         try {
             // Step 1: Authenticate using provided credentials
             // This returns an access token used for all subsequent API calls
-            AuthExample.TokenPair authenticate = AuthExample.authenticate("admin@cdialogues.com", "#!6!Kh879");
+            AuthExample.TokenPair authenticate = AuthExample.authenticate("api-demo@clash.io", "api-demo");
 
             // Step 2: Create an instance of CampaignExample to handle campaign creation
             CampaignExample campaignExample = new CampaignExample();
