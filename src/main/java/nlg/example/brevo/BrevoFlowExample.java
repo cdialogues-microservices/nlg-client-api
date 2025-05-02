@@ -7,8 +7,7 @@ import nlg.example.AuthExample;
 public class BrevoFlowExample {
     public static void main(String[] args) {
         try {
-            AuthExample.TokenPair authenticate = AuthExample.authenticate("admin@cdialogues.com", "#!6!Kh879");
-
+            AuthExample.TokenPair authenticate = AuthExample.authenticate("api-demo@clash.io", "api-demo");
             CampaignExample campaignExample = new CampaignExample();
             CampaignResponseDto brevoCampaign = campaignExample.createBrevoCampaign(authenticate.getAccessToken());
 
