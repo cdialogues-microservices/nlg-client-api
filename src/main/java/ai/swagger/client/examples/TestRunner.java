@@ -12,7 +12,7 @@ public class TestRunner {
     public static void main(String[] args) {
         ApiClient client = new ApiClient();
         client.setBasePath(ConfigLoader.get("api.base-url"));
-        client.setAccessToken(ConfigLoader.get("openai.token"));
+        client.setAccessToken(ConfigLoader.get("ai.token"));
 
         AiService textService = new AiService(client);
         AiController controller = new AiController(textService);
