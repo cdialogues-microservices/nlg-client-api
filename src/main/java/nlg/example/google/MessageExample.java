@@ -6,6 +6,7 @@ import io.swagger.client.api.MessageclientcontrollerApi;
 import io.swagger.client.model.Message;
 import io.swagger.client.model.RichContent;
 import io.swagger.client.model.Tag;
+import nlg.example.facebook.UploadImageExample;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,8 +46,12 @@ public class MessageExample {
         apiClient.setAccessToken(token);
 
         try {
+            //Uploading image
+            UploadImageExample uploadImageExample = new UploadImageExample();
+            Long richMediaId = uploadImageExample.uploadImage(token, "nlg/example/facebook/resources/cslash-logo.jpeg", null, "FACEBOOK_ADS");
+
             // Build the message object specific to Google Display
-            Message message = buildGoogleDisplayMessage();
+            Message message = buildGoogleDisplayMessage(richMediaId);
 
             // Submit the message via the API and return the created message
             Message createdMessage = apiInstance.createMessageRichUsingPOST(message);
@@ -68,8 +73,12 @@ public class MessageExample {
         apiClient.setAccessToken(token);
 
         try {
+            //Uploading image
+            UploadImageExample uploadImageExample = new UploadImageExample();
+            Long richMediaId = uploadImageExample.uploadImage(token, "nlg/example/facebook/resources/cslash-logo.jpeg", null, "FACEBOOK_ADS");
+
             // Build the message object specific to Google YouTube
-            Message message = buildYouTubeAdMessage();
+            Message message = buildYouTubeAdMessage(richMediaId);
 
             // Submit the message via the API and return the created message
             Message createdMessage = apiInstance.createMessageRichUsingPOST(message);
@@ -138,17 +147,17 @@ public class MessageExample {
         return message;
     }
 
-    private Message buildGoogleDisplayMessage() {
+    private Message buildGoogleDisplayMessage(Long richMediaId) {
         Message message = new Message();
 
         message.setLink("https://cslash.io/");
-        message.setLogoImageRichContentID(407478L);
+        message.setLogoImageRichContentID(richMediaId);
         message.setChannel("GOOGLE_ADS_DISPLAY");
 
         List<RichContent> richContents = new ArrayList<>();
 
         // Promo image
-        richContents.add(createRichContentWithId(1, "promo image", 407491L));
+        richContents.add(createRichContentWithId(1, "promo image", richMediaId));
 
         // Headline
         richContents.add(createRichContent(2, "headline text", "Solutions"));
@@ -167,18 +176,17 @@ public class MessageExample {
         return message;
     }
 
-    private Message buildYouTubeAdMessage() {
+    private Message buildYouTubeAdMessage(Long richMediaId) {
         Message message = new Message();
 
         message.setLink("https://cslash.io/");
-        message.setLogoImageRichContentID(407478L);
+        message.setLogoImageRichContentID(richMediaId);
         message.setChannel("YOUTUBE");
 
         List<RichContent> richContents = new ArrayList<>();
 
         // Promo images
-        richContents.add(createRichContentWithId(1, "promo image", 407828L));
-        richContents.add(createRichContentWithId(1, "promo image", 407829L));
+        richContents.add(createRichContentWithId(1, "promo image", richMediaId));
 
         // Headline Texts (Position 2)
         richContents.add(createRichContent(2, "headline text", "0% Interest for 12 Months!"));
