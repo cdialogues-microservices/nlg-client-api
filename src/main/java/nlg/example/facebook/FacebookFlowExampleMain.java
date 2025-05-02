@@ -4,7 +4,7 @@ import io.swagger.client.ApiException;
 import io.swagger.client.model.CampaignResponseDto;
 import nlg.example.AuthExample;
 
-public class FacebookFlowExample {
+public class FacebookFlowExampleMain {
     public static void main(String[] args) {
         try {
             AuthExample.TokenPair authenticate = AuthExample.authenticate("api-demo", "api-demo");

@@ -338,5 +338,12 @@ Example:
         }
 ```        
 
+### Creating Facebook Campaign
+Provided example for creating Facebook Campaign 
+package: nlg/example/facebook
 
+UploadImageExample - uploads image which will be used in MessageExample as promo_visual
+MessageExample - creates message for Facebook
+CampaignExample - provided how to create Facebook Campaign 
+FacebookFlowExampleMain - runs UploadImageExample, MessageExample, CampaignExample shows full flow of creation Facebook Campaign
 
