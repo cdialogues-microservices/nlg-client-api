@@ -24,13 +24,16 @@ public class CampaignExample {
         TargetGroupExample targetGroupExample = new TargetGroupExample();
         TargetGroupDto targetGroup = targetGroupExample.createTargetGroup(accessToken);
 
+        EmailExample emailExample = new EmailExample();
+        emailExample.saveEmails(accessToken,targetGroup.getName());
+
+
         CampaignRequestV2 brevoCampaignRequest = buildCampaignRequest(brevoMessageVariations, targetGroup);
 
         return apiInstance.createNewUsingPOST(brevoCampaignRequest);
     }
 
     private CampaignRequestV2 buildCampaignRequest(List<Message> messages, TargetGroupDto targetGroup) {
-
         List<ExperimentMessage> experimentMessages = messages.stream().map(MessageMapper::mapToExperimentMessage).collect(Collectors.toList());
 
         TargetGroupMessage targetGroupMessage = new TargetGroupMessage();
@@ -41,7 +44,6 @@ public class CampaignExample {
         BrevoConfig brevoConfig = new BrevoConfig();
         brevoConfig.setSenderEmail("info@cslash.i");
         brevoConfig.setSenderName("Brevo");
-
 
         Experiment experiment = new Experiment();
         experiment.setStartDateUi("2025-04-29T13:20:00");
@@ -54,7 +56,6 @@ public class CampaignExample {
         experiment.setStatus(Experiment.StatusEnum.DRAFT);
         experiment.setTargetGroup(targetGroup);
         experiment.setCustomAttributes(buildCustomAttributes());
-
 
         CampaignDto campaign = new CampaignDto();
         campaign.setName("Brevo Campaign");

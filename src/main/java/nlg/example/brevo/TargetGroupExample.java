@@ -13,8 +13,7 @@ public class TargetGroupExample {
         apiClient.setAccessToken(accessToken);
 
         TargetGroupDto targetGroupDto = new TargetGroupDto();
-        targetGroupDto.setName("Brevo_TargetGroup");
-
+        targetGroupDto.setName("brevo_example");
 
         return apiInstance.createUsingPOST2(targetGroupDto);
     }
