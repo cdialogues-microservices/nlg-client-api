@@ -7,7 +7,7 @@ import nlg.example.AuthExample;
 public class FacebookFlowExampleMain {
     public static void main(String[] args) {
         try {
-            AuthExample.TokenPair authenticate = AuthExample.authenticate("api-demo", "api-demo");
+            AuthExample.TokenPair authenticate = AuthExample.authenticate("api-demo@clash.io", "api-demo");
             CampaignExample campaignExample = new CampaignExample();
             CampaignResponseDto facebookCampaign = campaignExample.createFacebookCampaign(authenticate.getAccessToken());
             System.out.println("Campaign successfully created:" + facebookCampaign);
