@@ -1,4 +1,4 @@
-package nlg.example.facebook;
+package glg.example.facebook;
 
 import io.swagger.client.ApiClient;
 import io.swagger.client.ApiException;

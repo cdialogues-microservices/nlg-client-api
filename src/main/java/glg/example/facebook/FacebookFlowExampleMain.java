@@ -1,8 +1,8 @@
-package nlg.example.facebook;
+package glg.example.facebook;
 
 import io.swagger.client.ApiException;
 import io.swagger.client.model.CampaignResponseDto;
-import nlg.example.AuthExample;
+import glg.example.AuthExample;
 
 public class FacebookFlowExampleMain {
     public static void main(String[] args) {

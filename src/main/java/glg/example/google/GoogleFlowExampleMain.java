@@ -1,8 +1,8 @@
-package nlg.example.google;
+package glg.example.google;
 
 import io.swagger.client.ApiException;
 import io.swagger.client.model.CampaignResponseDto;
-import nlg.example.AuthExample;
+import glg.example.AuthExample;
 
 public class GoogleFlowExampleMain {
     public static void main(String[] args) {

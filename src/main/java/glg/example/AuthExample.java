@@ -1,4 +1,4 @@
-package nlg.example;
+package glg.example;
 
 import io.swagger.client.ApiException;
 import io.swagger.client.api.AuthcontrollerApi;

@@ -1,4 +1,4 @@
-package nlg.example.google;
+package glg.example.google;
 
 import io.swagger.client.ApiClient;
 import io.swagger.client.ApiException;
@@ -6,7 +6,7 @@ import io.swagger.client.api.MessageclientcontrollerApi;
 import io.swagger.client.model.Message;
 import io.swagger.client.model.RichContent;
 import io.swagger.client.model.Tag;
-import nlg.example.facebook.UploadImageExample;
+import glg.example.facebook.UploadImageExample;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +48,7 @@ public class MessageExample {
         try {
             //Uploading image
             UploadImageExample uploadImageExample = new UploadImageExample();
-            Long richMediaId = uploadImageExample.uploadImage(token, "nlg/example/facebook/resources/cslash-logo.jpeg", null, "FACEBOOK_ADS");
+            Long richMediaId = uploadImageExample.uploadImage(token, "glg/example/facebook/resources/cslash-logo.jpeg", null, "FACEBOOK_ADS");
 
             // Build the message object specific to Google Display
             Message message = buildGoogleDisplayMessage(richMediaId);
@@ -75,7 +75,7 @@ public class MessageExample {
         try {
             //Uploading image
             UploadImageExample uploadImageExample = new UploadImageExample();
-            Long richMediaId = uploadImageExample.uploadImage(token, "nlg/example/facebook/resources/cslash-logo.jpeg", null, "FACEBOOK_ADS");
+            Long richMediaId = uploadImageExample.uploadImage(token, "glg/example/facebook/resources/cslash-logo.jpeg", null, "FACEBOOK_ADS");
 
             // Build the message object specific to Google YouTube
             Message message = buildYouTubeAdMessage(richMediaId);

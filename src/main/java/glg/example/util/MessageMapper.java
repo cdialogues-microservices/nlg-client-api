@@ -1,4 +1,4 @@
-package nlg.example.util;
+package glg.example.util;
 
 import io.swagger.client.model.ExperimentMessage;
 import io.swagger.client.model.Message;

@@ -1,4 +1,4 @@
-package nlg.example.facebook;
+package glg.example.facebook;
 
 import io.swagger.client.ApiClient;
 import io.swagger.client.ApiException;
@@ -23,7 +23,7 @@ public class MessageExample {
 
             UploadImageExample uploadImageExample = new UploadImageExample();
 
-            Long richMediaId = uploadImageExample.uploadImage(token, "nlg/example/facebook/resources/cslash-logo.jpeg", null, "FACEBOOK_ADS");
+            Long richMediaId = uploadImageExample.uploadImage(token, "glg/example/facebook/resources/cslash-logo.jpeg", null, "FACEBOOK_ADS");
 
             Message message = buildFacebookMessage(richMediaId);
             Message createdMessage = apiInstance.createMessageRichUsingPOST(message);

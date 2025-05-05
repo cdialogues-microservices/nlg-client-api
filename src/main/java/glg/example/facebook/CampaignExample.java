@@ -1,10 +1,10 @@
-package nlg.example.facebook;
+package glg.example.facebook;
 
+import glg.example.util.MessageMapper;
 import io.swagger.client.ApiClient;
 import io.swagger.client.ApiException;
 import io.swagger.client.api.CampaigncontrollerApi;
 import io.swagger.client.model.*;
-import nlg.example.util.MessageMapper;
 
 import java.util.List;
 import java.util.stream.Collectors;

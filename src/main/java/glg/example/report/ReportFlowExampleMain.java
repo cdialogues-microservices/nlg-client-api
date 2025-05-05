@@ -1,10 +1,10 @@
-package nlg.example.report;
+package glg.example.report;
 
+import glg.example.google.CampaignExample;
 import io.swagger.client.ApiException;
 import io.swagger.client.model.CampaignResponseDto;
 import io.swagger.client.model.Experiment;
-import nlg.example.AuthExample;
-import nlg.example.google.CampaignExample;
+import glg.example.AuthExample;
 
 public class ReportFlowExampleMain {
 

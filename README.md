@@ -425,9 +425,9 @@ Generates a standardized CampaignRequestV2 object used across all campaign types
 
 Example classes
 
-[MessageExample class](./src/main/java/nlg/example/google/MessageExample.java)
-[CampaignExample class](./src/main/java/nlg/example/google/CampaignExample.java)
-[GoogleFlowExampleMain class](./src/main/java/nlg/example/google/GoogleFlowExampleMain.java)
+[MessageExample class](src/main/java/glg/example/google/MessageExample.java)
+[CampaignExample class](src/main/java/glg/example/google/CampaignExample.java)
+[GoogleFlowExampleMain class](src/main/java/glg/example/google/GoogleFlowExampleMain.java)
 
 
 # Reporting API 
@@ -539,5 +539,5 @@ reportExample.topNMessageByExperimentId(token, experimentId);
 
 Example classes
 
-[ReportExample class](./src/main/java/nlg/example/report/ReportExample.java)
-[ReportFlowExampleMain class](./src/main/java/nlg/example/report/ReportFlowExampleMain.java)
+[ReportExample class](src/main/java/glg/example/report/ReportExample.java)
+[ReportFlowExampleMain class](src/main/java/glg/example/report/ReportFlowExampleMain.java)

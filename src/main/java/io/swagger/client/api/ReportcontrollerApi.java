@@ -41,7 +41,6 @@ import java.io.IOException;
 import io.swagger.client.model.ReportRequest;
 import io.swagger.client.model.ReportInfo;
 import io.swagger.client.model.ReportingRecordDayOfWeekStats;
-import io.swagger.client.model.NlgError;
 import io.swagger.client.model.GlobalMessageRecordTag;
 
 import java.lang.reflect.Type;
