@@ -1,4 +1,4 @@
-package nlg.example.brevo;
+package glg.example.brevo;
 
 import io.swagger.client.ApiClient;
 import io.swagger.client.ApiException;

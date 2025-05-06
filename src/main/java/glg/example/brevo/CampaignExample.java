@@ -1,10 +1,10 @@
-package nlg.example.brevo;
+package glg.example.brevo;
 
 import io.swagger.client.ApiClient;
 import io.swagger.client.ApiException;
 import io.swagger.client.api.CampaigncontrollerApi;
 import io.swagger.client.model.*;
-import nlg.example.util.MessageMapper;
+import glg.example.util.MessageMapper;
 
 import java.util.HashMap;
 import java.util.List;

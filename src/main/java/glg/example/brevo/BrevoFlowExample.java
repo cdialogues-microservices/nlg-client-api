@@ -1,8 +1,8 @@
-package nlg.example.brevo;
+package glg.example.brevo;
 
 import io.swagger.client.ApiException;
 import io.swagger.client.model.CampaignResponseDto;
-import nlg.example.AuthExample;
+import glg.example.AuthExample;
 
 public class BrevoFlowExample {
     public static void main(String[] args) {
