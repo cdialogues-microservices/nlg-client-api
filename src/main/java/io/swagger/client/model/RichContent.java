@@ -25,19 +25,27 @@
 
 package io.swagger.client.model;
 
+import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
+import io.swagger.client.model.RichContent;
+import io.swagger.client.model.Tag;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 
 /**
  * RichContent
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-09-16T11:21:22.833+06:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-29T19:02:02.404+06:00")
 public class RichContent   {
+  @SerializedName("aspectRatio")
+  private String aspectRatio = null;
+
+  @SerializedName("data")
+  private byte[] data = null;
+
   @SerializedName("position")
   private Integer position = null;
 
@@ -46,6 +54,9 @@ public class RichContent   {
 
   @SerializedName("richContentID")
   private Long richContentID = null;
+
+  @SerializedName("richContentVars")
+  private List<RichContent> richContentVars = new ArrayList<RichContent>();
 
   @SerializedName("tags")
   private List<Tag> tags = new ArrayList<Tag>();
@@ -86,6 +97,48 @@ public class RichContent   {
 
   @SerializedName("type")
   private TypeEnum type = null;
+
+  @SerializedName("uiOrderNumber")
+  private Long uiOrderNumber = null;
+
+  @SerializedName("variations")
+  private List<Long> variations = new ArrayList<Long>();
+
+  public RichContent aspectRatio(String aspectRatio) {
+    this.aspectRatio = aspectRatio;
+    return this;
+  }
+
+   /**
+   * Get aspectRatio
+   * @return aspectRatio
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getAspectRatio() {
+    return aspectRatio;
+  }
+
+  public void setAspectRatio(String aspectRatio) {
+    this.aspectRatio = aspectRatio;
+  }
+
+  public RichContent data(byte[] data) {
+    this.data = data;
+    return this;
+  }
+
+   /**
+   * Get data
+   * @return data
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public byte[] getData() {
+    return data;
+  }
+
+  public void setData(byte[] data) {
+    this.data = data;
+  }
 
   public RichContent position(Integer position) {
     this.position = position;
@@ -139,6 +192,29 @@ public class RichContent   {
 
   public void setRichContentID(Long richContentID) {
     this.richContentID = richContentID;
+  }
+
+  public RichContent richContentVars(List<RichContent> richContentVars) {
+    this.richContentVars = richContentVars;
+    return this;
+  }
+
+  public RichContent addRichContentVarsItem(RichContent richContentVarsItem) {
+    this.richContentVars.add(richContentVarsItem);
+    return this;
+  }
+
+   /**
+   * Get richContentVars
+   * @return richContentVars
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public List<RichContent> getRichContentVars() {
+    return richContentVars;
+  }
+
+  public void setRichContentVars(List<RichContent> richContentVars) {
+    this.richContentVars = richContentVars;
   }
 
   public RichContent tags(List<Tag> tags) {
@@ -200,9 +276,50 @@ public class RichContent   {
     this.type = type;
   }
 
+  public RichContent uiOrderNumber(Long uiOrderNumber) {
+    this.uiOrderNumber = uiOrderNumber;
+    return this;
+  }
+
+   /**
+   * Get uiOrderNumber
+   * @return uiOrderNumber
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Long getUiOrderNumber() {
+    return uiOrderNumber;
+  }
+
+  public void setUiOrderNumber(Long uiOrderNumber) {
+    this.uiOrderNumber = uiOrderNumber;
+  }
+
+  public RichContent variations(List<Long> variations) {
+    this.variations = variations;
+    return this;
+  }
+
+  public RichContent addVariationsItem(Long variationsItem) {
+    this.variations.add(variationsItem);
+    return this;
+  }
+
+   /**
+   * Get variations
+   * @return variations
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public List<Long> getVariations() {
+    return variations;
+  }
+
+  public void setVariations(List<Long> variations) {
+    this.variations = variations;
+  }
+
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -210,17 +327,22 @@ public class RichContent   {
       return false;
     }
     RichContent richContent = (RichContent) o;
-    return Objects.equals(this.position, richContent.position) &&
+    return Objects.equals(this.aspectRatio, richContent.aspectRatio) &&
+        Objects.equals(this.data, richContent.data) &&
+        Objects.equals(this.position, richContent.position) &&
         Objects.equals(this.positionId, richContent.positionId) &&
         Objects.equals(this.richContentID, richContent.richContentID) &&
+        Objects.equals(this.richContentVars, richContent.richContentVars) &&
         Objects.equals(this.tags, richContent.tags) &&
         Objects.equals(this.text, richContent.text) &&
-        Objects.equals(this.type, richContent.type);
+        Objects.equals(this.type, richContent.type) &&
+        Objects.equals(this.uiOrderNumber, richContent.uiOrderNumber) &&
+        Objects.equals(this.variations, richContent.variations);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(position, positionId, richContentID, tags, text, type);
+    return Objects.hash(aspectRatio, data, position, positionId, richContentID, richContentVars, tags, text, type, uiOrderNumber, variations);
   }
 
   @Override
@@ -228,12 +350,17 @@ public class RichContent   {
     StringBuilder sb = new StringBuilder();
     sb.append("class RichContent {\n");
     
+    sb.append("    aspectRatio: ").append(toIndentedString(aspectRatio)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    position: ").append(toIndentedString(position)).append("\n");
     sb.append("    positionId: ").append(toIndentedString(positionId)).append("\n");
     sb.append("    richContentID: ").append(toIndentedString(richContentID)).append("\n");
+    sb.append("    richContentVars: ").append(toIndentedString(richContentVars)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    uiOrderNumber: ").append(toIndentedString(uiOrderNumber)).append("\n");
+    sb.append("    variations: ").append(toIndentedString(variations)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -242,7 +369,7 @@ public class RichContent   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

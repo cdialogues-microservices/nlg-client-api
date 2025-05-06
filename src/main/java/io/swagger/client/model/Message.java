@@ -25,36 +25,58 @@
 
 package io.swagger.client.model;
 
+import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
+import io.swagger.client.model.RichContent;
+import io.swagger.client.model.Tag;
+import io.swagger.client.model.TemplateContextConfig;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 
 /**
  * Message
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-09-16T11:21:22.833+06:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-29T19:02:02.404+06:00")
 public class Message   {
+  @SerializedName("callToAction")
+  private String callToAction = null;
+
+  @SerializedName("campaignType")
+  private String campaignType = null;
+
+  @SerializedName("channel")
+  private String channel = null;
+
   @SerializedName("dateSubmitted")
   private String dateSubmitted = null;
 
   @SerializedName("dateUpdated")
   private String dateUpdated = null;
 
+  @SerializedName("htmlTemplate")
+  private String htmlTemplate = null;
+
+  @SerializedName("link")
+  private String link = null;
+
+  @SerializedName("logoImageRichContentID")
+  private Long logoImageRichContentID = null;
+
   @SerializedName("messageId")
   private Long messageId = null;
-
-  @SerializedName("messageParts")
-  private List<MessagePart> messageParts = new ArrayList<MessagePart>();
 
   @SerializedName("parentId")
   private Long parentId = null;
 
+  @SerializedName("personaIds")
+  private List<Long> personaIds = new ArrayList<Long>();
+
   @SerializedName("richContents")
   private List<RichContent> richContents = new ArrayList<RichContent>();
+
 
   /**
    * Gets or Sets status
@@ -99,8 +121,68 @@ public class Message   {
   @SerializedName("tags")
   private List<Tag> tags = new ArrayList<Tag>();
 
+  @SerializedName("teamOwnership")
+  private String teamOwnership = null;
+
+  @SerializedName("templateContext")
+  private TemplateContextConfig templateContext = null;
+
   @SerializedName("text")
   private String text = null;
+
+  public Message callToAction(String callToAction) {
+    this.callToAction = callToAction;
+    return this;
+  }
+
+   /**
+   * Get callToAction
+   * @return callToAction
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getCallToAction() {
+    return callToAction;
+  }
+
+  public void setCallToAction(String callToAction) {
+    this.callToAction = callToAction;
+  }
+
+  public Message campaignType(String campaignType) {
+    this.campaignType = campaignType;
+    return this;
+  }
+
+   /**
+   * Get campaignType
+   * @return campaignType
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getCampaignType() {
+    return campaignType;
+  }
+
+  public void setCampaignType(String campaignType) {
+    this.campaignType = campaignType;
+  }
+
+  public Message channel(String channel) {
+    this.channel = channel;
+    return this;
+  }
+
+   /**
+   * Get channel
+   * @return channel
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getChannel() {
+    return channel;
+  }
+
+  public void setChannel(String channel) {
+    this.channel = channel;
+  }
 
   public Message dateSubmitted(String dateSubmitted) {
     this.dateSubmitted = dateSubmitted;
@@ -138,6 +220,60 @@ public class Message   {
     this.dateUpdated = dateUpdated;
   }
 
+  public Message htmlTemplate(String htmlTemplate) {
+    this.htmlTemplate = htmlTemplate;
+    return this;
+  }
+
+   /**
+   * Get htmlTemplate
+   * @return htmlTemplate
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getHtmlTemplate() {
+    return htmlTemplate;
+  }
+
+  public void setHtmlTemplate(String htmlTemplate) {
+    this.htmlTemplate = htmlTemplate;
+  }
+
+  public Message link(String link) {
+    this.link = link;
+    return this;
+  }
+
+   /**
+   * Get link
+   * @return link
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getLink() {
+    return link;
+  }
+
+  public void setLink(String link) {
+    this.link = link;
+  }
+
+  public Message logoImageRichContentID(Long logoImageRichContentID) {
+    this.logoImageRichContentID = logoImageRichContentID;
+    return this;
+  }
+
+   /**
+   * Get logoImageRichContentID
+   * @return logoImageRichContentID
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Long getLogoImageRichContentID() {
+    return logoImageRichContentID;
+  }
+
+  public void setLogoImageRichContentID(Long logoImageRichContentID) {
+    this.logoImageRichContentID = logoImageRichContentID;
+  }
+
   public Message messageId(Long messageId) {
     this.messageId = messageId;
     return this;
@@ -156,29 +292,6 @@ public class Message   {
     this.messageId = messageId;
   }
 
-  public Message messageParts(List<MessagePart> messageParts) {
-    this.messageParts = messageParts;
-    return this;
-  }
-
-  public Message addMessagePartsItem(MessagePart messagePartsItem) {
-    this.messageParts.add(messagePartsItem);
-    return this;
-  }
-
-   /**
-   * Get messageParts
-   * @return messageParts
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public List<MessagePart> getMessageParts() {
-    return messageParts;
-  }
-
-  public void setMessageParts(List<MessagePart> messageParts) {
-    this.messageParts = messageParts;
-  }
-
   public Message parentId(Long parentId) {
     this.parentId = parentId;
     return this;
@@ -195,6 +308,29 @@ public class Message   {
 
   public void setParentId(Long parentId) {
     this.parentId = parentId;
+  }
+
+  public Message personaIds(List<Long> personaIds) {
+    this.personaIds = personaIds;
+    return this;
+  }
+
+  public Message addPersonaIdsItem(Long personaIdsItem) {
+    this.personaIds.add(personaIdsItem);
+    return this;
+  }
+
+   /**
+   * Get personaIds
+   * @return personaIds
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public List<Long> getPersonaIds() {
+    return personaIds;
+  }
+
+  public void setPersonaIds(List<Long> personaIds) {
+    this.personaIds = personaIds;
   }
 
   public Message richContents(List<RichContent> richContents) {
@@ -261,6 +397,42 @@ public class Message   {
     this.tags = tags;
   }
 
+  public Message teamOwnership(String teamOwnership) {
+    this.teamOwnership = teamOwnership;
+    return this;
+  }
+
+   /**
+   * Get teamOwnership
+   * @return teamOwnership
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getTeamOwnership() {
+    return teamOwnership;
+  }
+
+  public void setTeamOwnership(String teamOwnership) {
+    this.teamOwnership = teamOwnership;
+  }
+
+  public Message templateContext(TemplateContextConfig templateContext) {
+    this.templateContext = templateContext;
+    return this;
+  }
+
+   /**
+   * Get templateContext
+   * @return templateContext
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public TemplateContextConfig getTemplateContext() {
+    return templateContext;
+  }
+
+  public void setTemplateContext(TemplateContextConfig templateContext) {
+    this.templateContext = templateContext;
+  }
+
   public Message text(String text) {
     this.text = text;
     return this;
@@ -281,7 +453,7 @@ public class Message   {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -289,20 +461,28 @@ public class Message   {
       return false;
     }
     Message message = (Message) o;
-    return Objects.equals(this.dateSubmitted, message.dateSubmitted) &&
+    return Objects.equals(this.callToAction, message.callToAction) &&
+        Objects.equals(this.campaignType, message.campaignType) &&
+        Objects.equals(this.channel, message.channel) &&
+        Objects.equals(this.dateSubmitted, message.dateSubmitted) &&
         Objects.equals(this.dateUpdated, message.dateUpdated) &&
+        Objects.equals(this.htmlTemplate, message.htmlTemplate) &&
+        Objects.equals(this.link, message.link) &&
+        Objects.equals(this.logoImageRichContentID, message.logoImageRichContentID) &&
         Objects.equals(this.messageId, message.messageId) &&
-        Objects.equals(this.messageParts, message.messageParts) &&
         Objects.equals(this.parentId, message.parentId) &&
+        Objects.equals(this.personaIds, message.personaIds) &&
         Objects.equals(this.richContents, message.richContents) &&
         Objects.equals(this.status, message.status) &&
         Objects.equals(this.tags, message.tags) &&
+        Objects.equals(this.teamOwnership, message.teamOwnership) &&
+        Objects.equals(this.templateContext, message.templateContext) &&
         Objects.equals(this.text, message.text);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dateSubmitted, dateUpdated, messageId, messageParts, parentId, richContents, status, tags, text);
+    return Objects.hash(callToAction, campaignType, channel, dateSubmitted, dateUpdated, htmlTemplate, link, logoImageRichContentID, messageId, parentId, personaIds, richContents, status, tags, teamOwnership, templateContext, text);
   }
 
   @Override
@@ -310,14 +490,22 @@ public class Message   {
     StringBuilder sb = new StringBuilder();
     sb.append("class Message {\n");
     
+    sb.append("    callToAction: ").append(toIndentedString(callToAction)).append("\n");
+    sb.append("    campaignType: ").append(toIndentedString(campaignType)).append("\n");
+    sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
     sb.append("    dateSubmitted: ").append(toIndentedString(dateSubmitted)).append("\n");
     sb.append("    dateUpdated: ").append(toIndentedString(dateUpdated)).append("\n");
+    sb.append("    htmlTemplate: ").append(toIndentedString(htmlTemplate)).append("\n");
+    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    logoImageRichContentID: ").append(toIndentedString(logoImageRichContentID)).append("\n");
     sb.append("    messageId: ").append(toIndentedString(messageId)).append("\n");
-    sb.append("    messageParts: ").append(toIndentedString(messageParts)).append("\n");
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
+    sb.append("    personaIds: ").append(toIndentedString(personaIds)).append("\n");
     sb.append("    richContents: ").append(toIndentedString(richContents)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    teamOwnership: ").append(toIndentedString(teamOwnership)).append("\n");
+    sb.append("    templateContext: ").append(toIndentedString(templateContext)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -327,7 +515,7 @@ public class Message   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

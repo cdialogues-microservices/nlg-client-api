@@ -1,12 +1,10 @@
-package nlg.example;
+package glg.example;
 
 import io.swagger.client.ApiException;
 import io.swagger.client.api.AuthcontrollerApi;
 import io.swagger.client.model.AuthModel;
 import io.swagger.client.model.RefreshTokenModel;
 import org.json.JSONObject;
-
-import javax.sound.midi.Soundbank;
 
 public class BasicExampleApplication {
     public static void main(String[] args) {
@@ -60,6 +58,7 @@ public class BasicExampleApplication {
         ExperimentExample experimentExample = new ExperimentExample();
         experimentExample.createExperimentMoreReadable(token);
         experimentExample.getExperiment(token);
+        experimentExample.getExperimentNextMessagePush(token);
 
         ConversionExample conversionExample = new ConversionExample();
         conversionExample.postConversionExperiment(token);

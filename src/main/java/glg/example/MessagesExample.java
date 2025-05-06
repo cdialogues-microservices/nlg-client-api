@@ -1,4 +1,4 @@
-package nlg.example;
+package glg.example;
 
 import io.swagger.client.ApiClient;
 import io.swagger.client.ApiException;
@@ -27,7 +27,7 @@ public class MessagesExample {
             System.out.println("Result postCreateMessagesRich: " + lastMessage);
         } catch (ApiException e) {
             System.err.println("Exception when calling MessageclientcontrollerApi#createMessageUsingPOST");
-            System.err.println("Error: " + e.getResponseBody());
+            System.err.println("Error: " + e.getResponseBody() + ", Message: " + e.getMessage());
         }
     }
 
@@ -39,11 +39,11 @@ public class MessagesExample {
         apiClient.setAccessToken(token);
         try {
             List<Long> messagesIds = List.of(lastMessage.getMessageId());
-            lastMessagesAlternatives = apiInstance.createRichContentAlternativeMessagesUsingPOST(messagesIds, true);
+            lastMessagesAlternatives = apiInstance.createRichContentAlternativeMessagesUsingPOST(messagesIds, false);
             System.out.println("Result postCreateMessageRichVariations: " + lastMessagesAlternatives);
         } catch (ApiException e) {
             System.err.println("Exception when calling MessageclientcontrollerApi#createMessageUsingPOST");
-            System.err.println("Error: " + e.getResponseBody());
+            System.err.println("Error: " + e.getResponseBody() + ", messages ids: " + lastMessage.getMessageId());
         }
     }
 

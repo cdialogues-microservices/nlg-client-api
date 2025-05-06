@@ -25,12 +25,22 @@
 
 package io.swagger.client.api;
 
+import io.swagger.client.ApiCallback;
+import io.swagger.client.ApiClient;
+import io.swagger.client.ApiException;
+import io.swagger.client.ApiResponse;
+import io.swagger.client.Configuration;
+import io.swagger.client.Pair;
+import io.swagger.client.ProgressRequestBody;
+import io.swagger.client.ProgressResponseBody;
+
 import com.google.gson.reflect.TypeToken;
-import io.swagger.client.*;
+
+import java.io.IOException;
+
 import io.swagger.client.model.Message;
 import io.swagger.client.model.MessageRequest;
 
-import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -90,7 +100,7 @@ public class MessageclientcontrollerApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -200,7 +210,7 @@ public class MessageclientcontrollerApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -275,6 +285,113 @@ public class MessageclientcontrollerApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+    /* Build call for getMessagesByIterIdUsingGET */
+    private com.squareup.okhttp.Call getMessagesByIterIdUsingGETCall(Long iterId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // verify the required parameter 'iterId' is set
+        if (iterId == null) {
+            throw new ApiException("Missing the required parameter 'iterId' when calling getMessagesByIterIdUsingGET(Async)");
+        }
+        
+
+        // create path and map variables
+        String localVarPath = "/api/v1.0/messages/iteration/{iterId}".replaceAll("\\{format\\}","json")
+        .replaceAll("\\{" + "iterId" + "\\}", apiClient.escapeString(iterId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "*/*"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {"BearerTokenAuthentication"};
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * getMessagesByIterId
+     * 
+     * @param iterId iterId (required)
+     * @return List&lt;Message&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<Message> getMessagesByIterIdUsingGET(Long iterId) throws ApiException {
+        ApiResponse<List<Message>> resp = getMessagesByIterIdUsingGETWithHttpInfo(iterId);
+        return resp.getData();
+    }
+
+    /**
+     * getMessagesByIterId
+     * 
+     * @param iterId iterId (required)
+     * @return ApiResponse&lt;List&lt;Message&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<Message>> getMessagesByIterIdUsingGETWithHttpInfo(Long iterId) throws ApiException {
+        com.squareup.okhttp.Call call = getMessagesByIterIdUsingGETCall(iterId, null, null);
+        Type localVarReturnType = new TypeToken<List<Message>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * getMessagesByIterId (asynchronously)
+     * 
+     * @param iterId iterId (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getMessagesByIterIdUsingGETAsync(Long iterId, final ApiCallback<List<Message>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getMessagesByIterIdUsingGETCall(iterId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<Message>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /* Build call for getMessagesUsingGET */
     private com.squareup.okhttp.Call getMessagesUsingGETCall(List<Long> id, List<String> status, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
@@ -308,7 +425,7 @@ public class MessageclientcontrollerApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -417,7 +534,7 @@ public class MessageclientcontrollerApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -485,6 +602,112 @@ public class MessageclientcontrollerApi {
         }
 
         com.squareup.okhttp.Call call = getMessagesUsingPOSTCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<Message>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /* Build call for getMessagesWithoutTagsUsingPOST */
+    private com.squareup.okhttp.Call getMessagesWithoutTagsUsingPOSTCall(MessageRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request;
+        
+        // verify the required parameter 'request' is set
+        if (request == null) {
+            throw new ApiException("Missing the required parameter 'request' when calling getMessagesWithoutTagsUsingPOST(Async)");
+        }
+        
+
+        // create path and map variables
+        String localVarPath = "/api/v1.0/messages/filter/without-tags".replaceAll("\\{format\\}","json");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "*/*"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {"BearerTokenAuthentication"};
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    /**
+     * getMessagesWithoutTags
+     * 
+     * @param request request (required)
+     * @return List&lt;Message&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<Message> getMessagesWithoutTagsUsingPOST(MessageRequest request) throws ApiException {
+        ApiResponse<List<Message>> resp = getMessagesWithoutTagsUsingPOSTWithHttpInfo(request);
+        return resp.getData();
+    }
+
+    /**
+     * getMessagesWithoutTags
+     * 
+     * @param request request (required)
+     * @return ApiResponse&lt;List&lt;Message&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<Message>> getMessagesWithoutTagsUsingPOSTWithHttpInfo(MessageRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = getMessagesWithoutTagsUsingPOSTCall(request, null, null);
+        Type localVarReturnType = new TypeToken<List<Message>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * getMessagesWithoutTags (asynchronously)
+     * 
+     * @param request request (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getMessagesWithoutTagsUsingPOSTAsync(MessageRequest request, final ApiCallback<List<Message>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getMessagesWithoutTagsUsingPOSTCall(request, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<Message>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

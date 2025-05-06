@@ -25,17 +25,17 @@
 
 package io.swagger.client.model;
 
+import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.joda.time.DateTime;
-
-import java.util.Objects;
 
 
 /**
  * ShortUrlEntity
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2024-09-16T11:21:22.833+06:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-29T19:02:02.404+06:00")
 public class ShortUrlEntity   {
   @SerializedName("code")
   private String code = null;
@@ -55,8 +55,14 @@ public class ShortUrlEntity   {
   @SerializedName("shortUrl")
   private String shortUrl = null;
 
+  @SerializedName("shortUrlForEmail")
+  private String shortUrlForEmail = null;
+
   @SerializedName("targetUrl")
   private String targetUrl = null;
+
+  @SerializedName("teamOwnership")
+  private String teamOwnership = null;
 
   @SerializedName("used")
   private Boolean used = null;
@@ -172,6 +178,24 @@ public class ShortUrlEntity   {
     this.shortUrl = shortUrl;
   }
 
+  public ShortUrlEntity shortUrlForEmail(String shortUrlForEmail) {
+    this.shortUrlForEmail = shortUrlForEmail;
+    return this;
+  }
+
+   /**
+   * Get shortUrlForEmail
+   * @return shortUrlForEmail
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getShortUrlForEmail() {
+    return shortUrlForEmail;
+  }
+
+  public void setShortUrlForEmail(String shortUrlForEmail) {
+    this.shortUrlForEmail = shortUrlForEmail;
+  }
+
   public ShortUrlEntity targetUrl(String targetUrl) {
     this.targetUrl = targetUrl;
     return this;
@@ -188,6 +212,24 @@ public class ShortUrlEntity   {
 
   public void setTargetUrl(String targetUrl) {
     this.targetUrl = targetUrl;
+  }
+
+  public ShortUrlEntity teamOwnership(String teamOwnership) {
+    this.teamOwnership = teamOwnership;
+    return this;
+  }
+
+   /**
+   * Get teamOwnership
+   * @return teamOwnership
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getTeamOwnership() {
+    return teamOwnership;
+  }
+
+  public void setTeamOwnership(String teamOwnership) {
+    this.teamOwnership = teamOwnership;
   }
 
   public ShortUrlEntity used(Boolean used) {
@@ -228,7 +270,7 @@ public class ShortUrlEntity   {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -242,14 +284,16 @@ public class ShortUrlEntity   {
         Objects.equals(this.id, shortUrlEntity.id) &&
         Objects.equals(this.messageId, shortUrlEntity.messageId) &&
         Objects.equals(this.shortUrl, shortUrlEntity.shortUrl) &&
+        Objects.equals(this.shortUrlForEmail, shortUrlEntity.shortUrlForEmail) &&
         Objects.equals(this.targetUrl, shortUrlEntity.targetUrl) &&
+        Objects.equals(this.teamOwnership, shortUrlEntity.teamOwnership) &&
         Objects.equals(this.used, shortUrlEntity.used) &&
         Objects.equals(this.userId, shortUrlEntity.userId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, createdDate, experimentId, id, messageId, shortUrl, targetUrl, used, userId);
+    return Objects.hash(code, createdDate, experimentId, id, messageId, shortUrl, shortUrlForEmail, targetUrl, teamOwnership, used, userId);
   }
 
   @Override
@@ -263,7 +307,9 @@ public class ShortUrlEntity   {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    messageId: ").append(toIndentedString(messageId)).append("\n");
     sb.append("    shortUrl: ").append(toIndentedString(shortUrl)).append("\n");
+    sb.append("    shortUrlForEmail: ").append(toIndentedString(shortUrlForEmail)).append("\n");
     sb.append("    targetUrl: ").append(toIndentedString(targetUrl)).append("\n");
+    sb.append("    teamOwnership: ").append(toIndentedString(teamOwnership)).append("\n");
     sb.append("    used: ").append(toIndentedString(used)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("}");
@@ -274,7 +320,7 @@ public class ShortUrlEntity   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }
