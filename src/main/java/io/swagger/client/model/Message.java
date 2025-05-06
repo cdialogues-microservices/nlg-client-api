@@ -77,6 +77,7 @@ public class Message   {
   @SerializedName("richContents")
   private List<RichContent> richContents = new ArrayList<RichContent>();
 
+
   /**
    * Gets or Sets status
    */

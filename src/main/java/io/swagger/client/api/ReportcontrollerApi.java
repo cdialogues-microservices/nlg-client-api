@@ -41,7 +41,7 @@ import java.io.IOException;
 import io.swagger.client.model.ReportRequest;
 import io.swagger.client.model.ReportInfo;
 import io.swagger.client.model.ReportingRecordDayOfWeekStats;
-import io.swagger.client.model.NlgError;
+import io.swagger.client.model.GlobalMessageRecordTag;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -102,7 +102,7 @@ public class ReportcontrollerApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -111,7 +111,7 @@ public class ReportcontrollerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {"BearerTokenAuthentication"};
+        String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -240,7 +240,7 @@ public class ReportcontrollerApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -249,7 +249,7 @@ public class ReportcontrollerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {"BearerTokenAuthentication"};
+        String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -361,7 +361,7 @@ public class ReportcontrollerApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -370,7 +370,7 @@ public class ReportcontrollerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {"BearerTokenAuthentication"};
+        String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -464,7 +464,7 @@ public class ReportcontrollerApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -697,7 +697,7 @@ public class ReportcontrollerApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -823,11 +823,11 @@ public class ReportcontrollerApi {
      * getTopNSegment
      * 
      * @param request request (required)
-     * @return Object
+     * @return List&lt;GlobalMessageRecordTag&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object getTopNSegmentUsingPOST(ReportRequest request) throws ApiException {
-        ApiResponse<Object> resp = getTopNSegmentUsingPOSTWithHttpInfo(request);
+    public List<GlobalMessageRecordTag> getTopNSegmentUsingPOST(ReportRequest request) throws ApiException {
+        ApiResponse<List<GlobalMessageRecordTag>> resp = getTopNSegmentUsingPOSTWithHttpInfo(request);
         return resp.getData();
     }
 
@@ -835,12 +835,12 @@ public class ReportcontrollerApi {
      * getTopNSegment
      * 
      * @param request request (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;List&lt;GlobalMessageRecordTag&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> getTopNSegmentUsingPOSTWithHttpInfo(ReportRequest request) throws ApiException {
+    public ApiResponse<List<GlobalMessageRecordTag>> getTopNSegmentUsingPOSTWithHttpInfo(ReportRequest request) throws ApiException {
         com.squareup.okhttp.Call call = getTopNSegmentUsingPOSTCall(request, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<GlobalMessageRecordTag>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -852,7 +852,7 @@ public class ReportcontrollerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTopNSegmentUsingPOSTAsync(ReportRequest request, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTopNSegmentUsingPOSTAsync(ReportRequest request, final ApiCallback<List<GlobalMessageRecordTag>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -874,7 +874,7 @@ public class ReportcontrollerApi {
         }
 
         com.squareup.okhttp.Call call = getTopNSegmentUsingPOSTCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<GlobalMessageRecordTag>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -912,7 +912,7 @@ public class ReportcontrollerApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -921,7 +921,7 @@ public class ReportcontrollerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {"BearerTokenAuthentication"};
+        String[] localVarAuthNames = new String[] {  };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
