@@ -6,6 +6,10 @@ import io.swagger.client.api.CampaigncontrollerApi;
 import io.swagger.client.model.*;
 import glg.example.util.MessageMapper;
 
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -89,9 +93,14 @@ public class CampaignExample {
         googleAdsConfig.setBudgetAmount(1L);
 
         Experiment experiment = new Experiment();
-        experiment.setStartDateUi("2025-04-29T13:20:00");
-        experiment.setEndDateUi("2025-04-30T12:20:00");
-        experiment.setTimezoneUi("Asia/Bishkek");
+        String TIMEZONE = "Europe/London";
+        experiment.setTimezoneUi(TIMEZONE);
+        ZoneId defaultTimeZone = ZoneId.of(TIMEZONE);
+        ZonedDateTime experimentStartDateUI = ZonedDateTime.now(defaultTimeZone).plus(5, ChronoUnit.MINUTES);
+        ZonedDateTime experimentEndDateUI = experimentStartDateUI.plus(3, ChronoUnit.HOURS);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+        experiment.setStartDateUi(formatter.format(experimentStartDateUI));
+        experiment.setEndDateUi(formatter.format(experimentEndDateUI));
         experiment.setExperimentName(experimentName);
         experiment.setGoogleAdsConfig(googleAdsConfig);
         experiment.setChannel(channel);

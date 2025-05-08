@@ -163,7 +163,7 @@ public class MessagesExample {
             Tag tag10 = new Tag();
             tag10.setTagName("TEST_TAG_MESSAGE");
             Tag tag11 = new Tag();
-            tag11.setTagName("NLG_INTEGRATION");
+            tag11.setTagName("GLG_INTEGRATION");
         tags6.add(tag9);
         tags6.add(tag10);
         tags6.add(tag11);

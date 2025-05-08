@@ -1,6 +1,6 @@
 # AuthcontrollerApi
 
-All URIs are relative to *https://nlg-api-dev.cdialogues.com/*
+All URIs are relative to *https://nlg-api-dev.cslash.io/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

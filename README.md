@@ -340,7 +340,7 @@ Example:
 
 ### Creating Facebook Campaign
 Provided example for creating Facebook Campaign 
-package: nlg/example/facebook
+package: glg/example/facebook
 ## Google Campaign Creation
 
 Create and Manage Google Ads Campaigns:

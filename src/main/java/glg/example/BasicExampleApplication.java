@@ -11,8 +11,8 @@ public class BasicExampleApplication {
 
         AuthcontrollerApi apiInstance = new AuthcontrollerApi();
         AuthModel model = new AuthModel();
-        model.setUsername("api-demo");
-        model.setPassword("api-demo");
+        model.setUsername("use_provided_credentials");
+        model.setPassword("use_provided_credentials");
 
         String token = null;
         String refreshToken = null;

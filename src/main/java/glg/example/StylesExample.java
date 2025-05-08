@@ -1,4 +1,4 @@
-package nlg.example;
+package glg.example;
 
 import io.swagger.client.ApiClient;
 import io.swagger.client.ApiException;

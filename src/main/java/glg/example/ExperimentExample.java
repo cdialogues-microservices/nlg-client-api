@@ -27,7 +27,7 @@ public class ExperimentExample {
         try {
             ExperimentClient experiment = new ExperimentClient();
             String TIMEZONE = "Europe/London";
-            experiment.setExperimentName("NLG_INTEGRATION_CLIENT_" + Instant.now().truncatedTo(ChronoUnit.SECONDS).toString());
+            experiment.setExperimentName("GLG_INTEGRATION_CLIENT_" + Instant.now().truncatedTo(ChronoUnit.SECONDS).toString());
             experiment.setTimezoneUi(TIMEZONE);
             experiment.setStrategy(ExperimentClient.StrategyEnum.BEST_MESSAGES_ROUNDS_GA);
             experiment.setStatus(ExperimentClient.StatusEnum.DRAFT);
@@ -62,7 +62,7 @@ public class ExperimentExample {
         try {
             Experiment experiment = new Experiment();
             String TIMEZONE = "Europe/London";
-            experiment.setExperimentName("NLG_INTEGRATION_CLIENT_" + Instant.now().truncatedTo(ChronoUnit.SECONDS).toString());
+            experiment.setExperimentName("GLG_INTEGRATION_CLIENT_" + Instant.now().truncatedTo(ChronoUnit.SECONDS).toString());
             experiment.setTimezoneUi(TIMEZONE);
             experiment.setStrategy(Experiment.StrategyEnum.BEST_MESSAGES_ROUNDS_GA);
             experiment.setStatus(Experiment.StatusEnum.DRAFT);
