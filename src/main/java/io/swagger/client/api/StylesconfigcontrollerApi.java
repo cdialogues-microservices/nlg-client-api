@@ -39,7 +39,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 import io.swagger.client.model.StylesConfigDto;
-import io.swagger.client.model.StylesTextDto;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -172,112 +171,7 @@ public class StylesconfigcontrollerApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for formatUsingPOST */
-    private com.squareup.okhttp.Call formatUsingPOSTCall(StylesTextDto stylesTextDto, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = stylesTextDto;
-        
-        // verify the required parameter 'stylesTextDto' is set
-        if (stylesTextDto == null) {
-            throw new ApiException("Missing the required parameter 'stylesTextDto' when calling formatUsingPOST(Async)");
-        }
-        
 
-        // create path and map variables
-        String localVarPath = "/api/styles/format".replaceAll("\\{format\\}","json");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "*/*"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {"BearerTokenAuthentication"};
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    /**
-     * format
-     * 
-     * @param stylesTextDto stylesTextDto (required)
-     * @return StylesTextDto
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public StylesTextDto formatUsingPOST(StylesTextDto stylesTextDto) throws ApiException {
-        ApiResponse<StylesTextDto> resp = formatUsingPOSTWithHttpInfo(stylesTextDto);
-        return resp.getData();
-    }
-
-    /**
-     * format
-     * 
-     * @param stylesTextDto stylesTextDto (required)
-     * @return ApiResponse&lt;StylesTextDto&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<StylesTextDto> formatUsingPOSTWithHttpInfo(StylesTextDto stylesTextDto) throws ApiException {
-        com.squareup.okhttp.Call call = formatUsingPOSTCall(stylesTextDto, null, null);
-        Type localVarReturnType = new TypeToken<StylesTextDto>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * format (asynchronously)
-     * 
-     * @param stylesTextDto stylesTextDto (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call formatUsingPOSTAsync(StylesTextDto stylesTextDto, final ApiCallback<StylesTextDto> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = formatUsingPOSTCall(stylesTextDto, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<StylesTextDto>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
     /* Build call for getUsingGET */
     private com.squareup.okhttp.Call getUsingGETCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;

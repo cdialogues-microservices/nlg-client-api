@@ -44,24 +44,6 @@ public class StylesExample {
         }
     }
 
-    public static List<RichContent> formatStyles(String token, List<RichContent> richContents) {
-        StylesconfigcontrollerApi apiInstance = new StylesconfigcontrollerApi();
-
-        ApiClient apiClient = apiInstance.getApiClient();
-
-        apiClient.setAccessToken(token);
-
-        try {
-            StylesTextDto response = apiInstance.formatUsingPOST(new StylesTextDto().richContents(richContents));
-
-            System.out.println("Result format: " + response);
-            return response.getRichContents();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling StylesconfigcontrollerApi#formatStyles");
-            System.err.println("Error: " + e.getResponseBody());
-            return null;
-        }
-    }
 
     private static StylesConfigDto getStylesConfig() {
         PunctuationMarkConfigDto punctuationMarkConfigDto = new PunctuationMarkConfigDto()
