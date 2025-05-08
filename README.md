@@ -173,21 +173,21 @@ Example:
 
 Experiment Creation: The application creates an experiment in the NLG system.
 
-URL: `/api/v1.0/experiments/client`
+URL: `/api/campaign/new`
 
 Example:
 
 ```java
-        ExperimentclientcontrollerApi apiInstance = new ExperimentclientcontrollerApi();
+        CampaigncontrollerApi apiInstance = new CampaigncontrollerApi();
 
-        ApiClient apiClient = apiInstance.getApiClient();
+            ApiClient apiClient = apiInstance.getApiClient();
 
         apiClient.setAccessToken("put your token here");
         try {
-            ExperimentClient experiment = new ExperimentClient();
+            CampaignRequestV2 request = new CampaignRequestV2();
             // fill in the experiment object
-            
-            Experiment result = apiInstance.createExperimentMoreReadableUsingPOST(experiment);
+
+            CampaignResponseDto result = apiInstance.createNewUsingPOST(request);
         } catch (ApiException e) {
             e.printStackTrace();
         }
@@ -338,5 +338,26 @@ Example:
         }
 ```        
 
+### Create/Update styles config endpoint:
 
+Create/Update styles config: The application create new style or update old.
 
+URL: `/api/styles`
+
+Example:
+
+```java
+        StylesconfigcontrollerApi apiInstance = new StylesconfigcontrollerApi();
+
+        ApiClient apiClient = apiInstance.getApiClient();
+
+        apiClient.setAccessToken(token);
+        try {
+            StylesConfigDto stylesConfigDto = new StylesConfigDto();
+            // fill config for creating/updating
+            StylesConfigDto response = (StylesConfigDto) apiInstance.createUsingPOST1(stylesConfigDto);
+            return response;
+        } catch (ApiException e) {
+            e.printStackTrace();
+        }
+``` 
