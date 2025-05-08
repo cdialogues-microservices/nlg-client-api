@@ -14,7 +14,7 @@
 
 ### Login endpoint:
 
-Authorization and Access Token Retrieval: The application authenticates with the NLG system and retrieves an access token. This token is used for subsequent requests to the NLG system.
+Authorization and Access Token Retrieval: The application authenticates with the GLG system and retrieves an access token. This token is used for subsequent requests to the GLG system.
 
 URL: `/api/auth/login`
 
@@ -72,7 +72,7 @@ Example:
 
 ### Message Creation endpoint:
 
-Message Creation in NLG: The application creates messages in the NLG system.
+Message Creation in GLG: The application creates messages in the GLG system.
 
 URL: `/api/v1.0/messages/rich`
 
@@ -118,7 +118,7 @@ Example:
 
 ### Get Messages endpoint:
 
-Retrieving Messages: The application retrieves messages from the NLG system.
+Retrieving Messages: The application retrieves messages from the GLG system.
 
 URL: `/api/v1.0/messages`
 
@@ -143,7 +143,7 @@ Example:
 
 ### Get Messages by Filter endpoint:
 
-Retrieving Messages by Filter: The application retrieves messages from the NLG system based on a filter.
+Retrieving Messages by Filter: The application retrieves messages from the GLG system based on a filter.
 
 URL: `/api/v1.0/messages/filter`
 
@@ -171,7 +171,7 @@ Example:
 
 ### Experiment Creation endpoint:
 
-Experiment Creation: The application creates an experiment in the NLG system.
+Experiment Creation: The application creates an experiment in the GLG system.
 
 URL: `/api/campaign/new`
 
@@ -241,7 +241,7 @@ Example:
 
 ### Get Experiments by Status endpoint:
 
-Retrieving Experiments by Status: The application retrieves experiments from the NLG system based on their status.
+Retrieving Experiments by Status: The application retrieves experiments from the GLG system based on their status.
 
 URL: `/api/v1.0/experiments/status`
 
@@ -263,7 +263,7 @@ Example:
 
 ### Update Conversion endpoint:
 
-Experiment Update: The application updates the experiment in the NLG system.
+Experiment Update: The application updates the experiment in the GLG system.
 
 URL: `/api/v2.0/conversion/experiment/{experimentId}`
 
@@ -290,7 +290,7 @@ Example:
 
 ### Update Reach endpoint:
 
-Update Reach: The application updates the reach in the NLG system.
+Update Reach: The application updates the reach in the GLG system.
 
 URL: `/api/v2.0/conversion/experiment_reach/{experimentId}`
 
@@ -344,7 +344,7 @@ package: nlg/example/facebook
 ## Google Campaign Creation
 
 Create and Manage Google Ads Campaigns:
-This module handles the full flow of creating Google Ads campaigns (Search, Display, and YouTube) by authenticating with the NLG system, preparing message content, and submitting campaign requests.
+This module handles the full flow of creating Google Ads campaigns (Search, Display, and YouTube) by authenticating with the GLG system, preparing message content, and submitting campaign requests.
 
 **URL**: `/api/campaign/new`
 
@@ -432,7 +432,7 @@ Example classes
 
 # Reporting API 
 
-This guide covers how to use the reporting endpoints of the NLG API to extract meaningful analytics based on time, experiment, and content segments.
+This guide covers how to use the reporting endpoints of the GLG API to extract meaningful analytics based on time, experiment, and content segments.
 
 ## Reporting Endpoints
 
