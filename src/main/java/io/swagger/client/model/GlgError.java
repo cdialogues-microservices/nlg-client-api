@@ -27,17 +27,16 @@ package io.swagger.client.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
 
 /**
- * NlgError
+ * GlgError
  */
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2025-04-29T19:02:02.404+06:00")
-public class NlgError   {
+public class GlgError {
   @SerializedName("error")
   private String error = null;
 
@@ -273,7 +272,7 @@ public class NlgError   {
   @SerializedName("timestamp")
   private String timestamp = null;
 
-  public NlgError error(String error) {
+  public GlgError error(String error) {
     this.error = error;
     return this;
   }
@@ -291,7 +290,7 @@ public class NlgError   {
     this.error = error;
   }
 
-  public NlgError message(String message) {
+  public GlgError message(String message) {
     this.message = message;
     return this;
   }
@@ -309,12 +308,12 @@ public class NlgError   {
     this.message = message;
   }
 
-  public NlgError messages(List<String> messages) {
+  public GlgError messages(List<String> messages) {
     this.messages = messages;
     return this;
   }
 
-  public NlgError addMessagesItem(String messagesItem) {
+  public GlgError addMessagesItem(String messagesItem) {
     this.messages.add(messagesItem);
     return this;
   }
@@ -332,7 +331,7 @@ public class NlgError   {
     this.messages = messages;
   }
 
-  public NlgError status(StatusEnum status) {
+  public GlgError status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -350,7 +349,7 @@ public class NlgError   {
     this.status = status;
   }
 
-  public NlgError timestamp(String timestamp) {
+  public GlgError timestamp(String timestamp) {
     this.timestamp = timestamp;
     return this;
   }
@@ -377,12 +376,12 @@ public class NlgError   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NlgError nlgError = (NlgError) o;
-    return Objects.equals(this.error, nlgError.error) &&
-        Objects.equals(this.message, nlgError.message) &&
-        Objects.equals(this.messages, nlgError.messages) &&
-        Objects.equals(this.status, nlgError.status) &&
-        Objects.equals(this.timestamp, nlgError.timestamp);
+    GlgError glgError = (GlgError) o;
+    return Objects.equals(this.error, glgError.error) &&
+        Objects.equals(this.message, glgError.message) &&
+        Objects.equals(this.messages, glgError.messages) &&
+        Objects.equals(this.status, glgError.status) &&
+        Objects.equals(this.timestamp, glgError.timestamp);
   }
 
   @Override
@@ -393,7 +392,7 @@ public class NlgError   {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NlgError {\n");
+    sb.append("class GlgError {\n");
     
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
